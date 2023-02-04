@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from .models import Tutorial
-from .serializers import TutorialSerializer
+from .models import *
+from .serializers import *
 from django.http import JsonResponse
 from rest_framework.parsers import JSONParser
 from rest_framework import status
@@ -70,3 +70,38 @@ def tutorial_list_published(request):
     if request.method == 'GET': 
         tutorials_serializer = TutorialSerializer(tutorials, many=True)
         return JsonResponse(tutorials_serializer.data, safe=False)
+
+
+
+####################################
+
+@api_view(['GET', 'POST', 'DELETE'])
+def materialien_list(request):
+    # GET list of materialien, POST a new tutorial, DELETE all materialien
+    if request.method == 'GET':
+        materials = Kunststoffe.objects.all()
+        
+        name = request.GET.get('name', None)
+        if name is not None:
+            materials = materials.filter(name__icontains=name)
+        handelsname = request.GET.get('handelsname',None)
+        if handelsname is not None:
+            materials = materials.filter(handelsname__icontains=handelsname)
+       
+                  
+                  
+
+
+        
+        kunststoffe_serializer = KunststoffeSerializer(materials, many=True)
+        return JsonResponse(kunststoffe_serializer.data, safe=False)
+        # 'safe=False' for objects serialization
+    elif request.method == 'POST':
+        materials_data = JSONParser().parse(request)
+        kunststoffe_serializer = KunststoffeSerializer(data=materials_data)
+        if kunststoffe_serializer.is_valid():
+            kunststoffe_serializer.save()
+            return JsonResponse(kunststoffe_serializer.data, status=status.HTTP_201_CREATED) 
+        return JsonResponse(kunststoffe_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+ 
+ 
