@@ -81,12 +81,10 @@ def materialien_list(request):
     if request.method == 'GET':
         materials = Kunststoffe.objects.all()
         
-        name = request.GET.get('name', None)
-        if name is not None:
-            materials = materials.filter(name__icontains=name)
-        handelsname = request.GET.get('handelsname',None)
-        if handelsname is not None:
-            materials = materials.filter(handelsname__icontains=handelsname)
+        #name = request.GET.get('name', None)
+        #if name is not None:
+        #    materials = materials.filter(name__icontains=name)
+        
        
                   
                   

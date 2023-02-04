@@ -30,8 +30,8 @@ class Kunststoffe(models.Model):
     festigkeit = models.BooleanField(default=False, blank=True)
     haerte = models.IntegerField( blank=True)
     bruchfest = models.BooleanField(default=False, blank=True)
-    dichte = models.DecimalField(decimal_places = 2, max_digits=5, blank=True, default = -1)
-    wandstaerke = models.DecimalField(decimal_places = 2,max_digits=5, blank=True)
+    dichte = models.DecimalField(decimal_places= 2, max_digits=5, blank=True, default = -1)
+    wandstaerke = models.DecimalField(decimal_places= 2,max_digits=5, blank=True)
     choices_elastisch = [('nein','nein'),('etwas','etwas'), ('normal', 'normal'), ('hoch', 'hoch'),('sehr hoch','sehr hoch')]
 
     elastisch = models.TextField(choices= choices_elastisch, default= 'nein')
@@ -46,15 +46,16 @@ class Kunststoffe(models.Model):
     oele_bestaendig = models.BooleanField(default = False)
     feuchtigkeits_bestaendig = models.BooleanField(default = False)
     abrieb_bestaendig = models.BooleanField(default = False)
-    korrosion_bestaendig = models.BooleanField(default = False)
+    #korrosion_bestaendig = models.BooleanField(default = False)
     sterilisierbar = models.BooleanField(default = False)
     choices_entflammbar = [('nein', 'nein'), ('schwer', 'schwer'),('feuerbestaendig','feuerbestaendig')]
     entflammbar = models.TextField(choices = choices_entflammbar, default = 'nein')
     choices_kosten = [('normal', 'normal'), ('hoch', 'hoch'),('niedrig','niedrig')]
-    kosten = models.TextField(choices = choices_kosten, default = 'normal')
-    nachbearbeitung = models.BooleanField(default = False)
+    #kosten = models.TextField(choices = choices_kosten, default = 'normal')
+    #nachbearbeitung = models.BooleanField(default = False)
     verwendung = models.TextField(blank = True)
     #'Automobil', 'Luftfahrt', 'Raumfahrt', 'Medizin', 'Prototypen', 'Maschinen','Elektronik','Sport','Werkzeuge','Modelle','Endprodukte','Kleinserien','Halterungen','Gehause','Tiefziehwerkzeuge','Fertigung', 'Spritzguss','Zahnmedizin','Schmuck','Fahrrad'
     bereiche = models.TextField(default= "default")
     vorteile = models.TextField(blank = True)
     nachteile = models.TextField(blank = True)
+

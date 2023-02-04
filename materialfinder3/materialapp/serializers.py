@@ -1,6 +1,7 @@
 
 from rest_framework import serializers 
 from .models import *
+import pandas as pd
  
  
 class TutorialSerializer(serializers.ModelSerializer):
@@ -15,7 +16,9 @@ class TutorialSerializer(serializers.ModelSerializer):
 class KunststoffeSerializer(serializers.ModelSerializer):
  
     class Meta:
+        #model = pd.read_csv("tabelleExport.csv", sep=';', decimal=',', encoding='latin1')
         model = Kunststoffe
+        
         fields = ('name',
                   'handelsname',
                   'verfahren',
@@ -43,12 +46,11 @@ class KunststoffeSerializer(serializers.ModelSerializer):
                   'oele_bestaendig',
                   'feuchtigkeits_bestaendig', 
                   'abrieb_bestaendig', 
-                  'korrosion_bestaendig', 
                   'sterilisierbar', 
                   'entflammbar', 
                   
-                  'kosten', 
-                  'nachbearbeitung', 
+                  #'kosten', 
+                  #'nachbearbeitung', 
                   'verwendung', 
     
                   'vorteile', 
