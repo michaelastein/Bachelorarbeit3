@@ -1,27 +1,27 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Tutorial } from '../models/tutorial.model';
+import { Materialien } from '../models/materialien.model';
 
-const baseUrl = '/api/tutorials';
+const baseUrl = '/api/materialien';
 /*http://localhost:8080/api
  */
 
 @Injectable({
   providedIn: 'root'
 })
-export class TutorialService {
+export class MaterialienService {
 
   constructor(private http: HttpClient) { }
 
-  getAll(): Observable<Tutorial[]> {
+  getAll(): Observable<Materialien[]> {
     console.log("getAll" + baseUrl)
-    return this.http.get<Tutorial[]>(baseUrl);
+    return this.http.get<Materialien[]>(baseUrl);
   }
 
-  get(id: any): Observable<Tutorial> {
+  get(id: any): Observable<Materialien> {
     console.log(`${baseUrl}/${id}`)
-    return this.http.get<Tutorial>(`${baseUrl}/${id}`);
+    return this.http.get<Materialien>(`${baseUrl}/${id}`);
   }
 
   create(data: any): Observable<any> {
@@ -41,8 +41,8 @@ export class TutorialService {
     return this.http.delete(baseUrl);
   }
 
-  findByTitle(title: any): Observable<Tutorial[]> {
-    console.log("find" + `${baseUrl}?title=${title}`)
-    return this.http.get<Tutorial[]>(`${baseUrl}?title=${title}`);
+  find(terms: any): Observable<Materialien[]> {
+    
+    return this.http.get<Materialien[]>(`${baseUrl}{terms}`);
   }
 }

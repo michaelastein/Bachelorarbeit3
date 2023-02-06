@@ -93,6 +93,7 @@ def materialien_list(request):
         
         kunststoffe_serializer = KunststoffeSerializer(materials, many=True)
         return JsonResponse(kunststoffe_serializer.data, safe=False)
+    
         # 'safe=False' for objects serialization
     elif request.method == 'POST':
         materials_data = JSONParser().parse(request)

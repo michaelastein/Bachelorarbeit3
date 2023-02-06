@@ -1,0 +1,22 @@
+
+
+<div class="card m-3">
+  <h6 class="card-header">Materialfinder</h6>
+  <div class="card-body">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="form-group form-check">
+        <input type="checkbox" formControlName='biokompatibel' id='biokompatibel' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
+        <label for="biokompatibel" class="form-check-label">biokompatibel</label>
+        <input type="checkbox" formControlName='flexibel' id='flexibel' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
+        <label for="flexibel" class="form-check-label">flexibel</label>
+        <!-- <div *ngIf="submitted " class="invalid-feedback">Accept Ts & Cs is required</div> -->
+      </div>
+      <div>
+        <button class="btn btn-primary mr-1">Submit</button>
+        <button class="btn btn-secondary" type="reset" (click)="onReset()">Reset</button>
+      </div>
+    </form>
+
+    <h4>{{Ausgabe}}</h4>
+  </div>
+</div>
