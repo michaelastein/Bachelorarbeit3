@@ -42,7 +42,7 @@ export class TutorialService {
   }
 
   findByTitle(title: any): Observable<Tutorial[]> {
-    console.log("find" + `${baseUrl}?title=${title}` )
+    console.log("find" + `${baseUrl}?title=${title}`)
     return this.http.get<Tutorial[]>(`${baseUrl}?title=${title}`);
   }
 }

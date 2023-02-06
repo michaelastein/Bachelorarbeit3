@@ -66,7 +66,7 @@
               "browserTarget": "materialfrontend:build:development"
             },
             "options": {
-              "browserTarget": "angular-application-name:build",
+              "browserTarget": "materialfrontend:build",
               "proxyConfig": "src/proxy.conf.json"
             }
           },
