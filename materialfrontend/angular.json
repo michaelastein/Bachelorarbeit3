@@ -64,6 +64,10 @@
             },
             "development": {
               "browserTarget": "materialfrontend:build:development"
+            },
+            "options": {
+              "browserTarget": "angular-application-name:build",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

@@ -3,7 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Tutorial } from '../models/tutorial.model';
 
-const baseUrl = 'http://localhost:8080/api/tutorials';
+const baseUrl = '/api/tutorials';
+/*http://localhost:8080
+ */
 
 @Injectable({
   providedIn: 'root'
@@ -13,14 +15,17 @@ export class TutorialService {
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<Tutorial[]> {
+    console.log("getAll" + baseUrl)
     return this.http.get<Tutorial[]>(baseUrl);
   }
 
   get(id: any): Observable<Tutorial> {
+    console.log(`${baseUrl}/${id}`)
     return this.http.get<Tutorial>(`${baseUrl}/${id}`);
   }
 
   create(data: any): Observable<any> {
+    console.log("post" + baseUrl + data)
     return this.http.post(baseUrl, data);
   }
 
@@ -37,6 +42,7 @@ export class TutorialService {
   }
 
   findByTitle(title: any): Observable<Tutorial[]> {
+    console.log("find" + `${baseUrl}?title=${title}` )
     return this.http.get<Tutorial[]>(`${baseUrl}?title=${title}`);
   }
 }
