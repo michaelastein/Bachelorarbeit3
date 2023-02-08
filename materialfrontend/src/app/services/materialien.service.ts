@@ -45,4 +45,9 @@ export class MaterialienService {
     
     return this.http.get<Materialien[]>(`${baseUrl}{terms}`);
   }
+
+  findByName(name: any): Observable<Materialien[]> {
+    console.log("find" + `${baseUrl}?name=${name}`)
+    return this.http.get<Materialien[]>(`${baseUrl}?name=${name}`);
+  }
 }

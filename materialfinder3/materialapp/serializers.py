@@ -19,6 +19,13 @@ class KunststoffeSerializer(serializers.ModelSerializer):
         #model = pd.read_csv("tabelleExport.csv", sep=';', decimal=',', encoding='latin1')
         model = Kunststoffe
         
+#       fields = Kunststoffe._meta.get_fields
+        fields = '__all__'
+
+
+
+
+        """
         fields = ('name',
                   'handelsname',
                   'verfahren',
@@ -56,10 +63,5 @@ class KunststoffeSerializer(serializers.ModelSerializer):
                   'vorteile', 
                   'nachteile' 
                   
-                  
-                  
-                  
-                  
-                  
-                  
-                  )
+              
+                  )"""

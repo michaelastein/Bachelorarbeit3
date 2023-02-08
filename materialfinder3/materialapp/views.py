@@ -81,7 +81,7 @@ def materialien_list(request):
     if request.method == 'GET':
         materials = Kunststoffe.objects.all()
         
-        #name = request.GET.get('name', None)
+        #name = request.GET.filter('name', None)  #get?
         #if name is not None:
         #    materials = materials.filter(name__icontains=name)
         

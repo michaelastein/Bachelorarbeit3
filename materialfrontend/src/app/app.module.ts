@@ -11,6 +11,7 @@ import { AddTutorialComponent } from './components/add-tutorial/add-tutorial.com
 import { TutorialDetailsComponent } from './components/tutorial-details/tutorial-details.component';
 import { TutorialsListComponent } from './components/tutorials-list/tutorials-list.component';
 import { MaterialienWizardComponent } from './components/materialien-wizard/materialien-wizard.component';
+import { MaterialienListComponent } from './components/materialien-list/materialien-list.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { MaterialienWizardComponent } from './components/materialien-wizard/mate
     TutorialDetailsComponent,
     TutorialsListComponent,
     MaterialienWizardComponent,
+    MaterialienListComponent,
 
   ],
   imports: [
