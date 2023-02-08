@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { Materialien } from 'src/app/models/materialien.model';
 import { MaterialienService } from 'src/app/services/materialien.service';
+import { MaterialienListComponent } from 'src/app/components/materialien-list/materialien-list.component';
 
 @Component({
   selector: 'app-materialien-wizard',
@@ -21,6 +22,8 @@ export class MaterialienWizardComponent implements OnInit {
   newdata!: string;
   Ausgabe: any;
   ausgabereturn: any;
+  mat!: Materialien[];
+
 
 
   constructor(private formBuilder: FormBuilder, private MaterialienService: MaterialienService) { }
@@ -28,11 +31,12 @@ export class MaterialienWizardComponent implements OnInit {
   ngOnInit() {
     this.form = this.formBuilder.group({
       biokompatibel: [false],
-      flexibel: [false],
+      elastisch: [false],
 
 
     });
     this.newdata = "";
+    
    
   }
 
@@ -56,6 +60,7 @@ export class MaterialienWizardComponent implements OnInit {
         next: (res) => {
           console.log(res);
           this.submitted = true;
+
           this.Ausgabe = res;
         },
         error: (e) => console.error(e)

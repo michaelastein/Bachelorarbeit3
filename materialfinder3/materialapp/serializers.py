@@ -22,7 +22,9 @@ class KunststoffeSerializer(serializers.ModelSerializer):
 #       fields = Kunststoffe._meta.get_fields
         fields = '__all__'
 
-
+    """def getFields(self, declared_fields):
+        return super(KunststoffeSerializer, self).get_field_names(declared_fields);
+        """
 
 
         """

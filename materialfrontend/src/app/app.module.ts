@@ -12,6 +12,8 @@ import { TutorialDetailsComponent } from './components/tutorial-details/tutorial
 import { TutorialsListComponent } from './components/tutorials-list/tutorials-list.component';
 import { MaterialienWizardComponent } from './components/materialien-wizard/materialien-wizard.component';
 import { MaterialienListComponent } from './components/materialien-list/materialien-list.component';
+//import { DynamicTableComponent } from './dynamic-table/dynamic-table.component';
+import { DataTablesModule } from 'angular-datatables';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { MaterialienListComponent } from './components/materialien-list/material
     TutorialsListComponent,
     MaterialienWizardComponent,
     MaterialienListComponent,
+    //DynamicTableComponent,
+    DataTablesModule,
 
   ],
   imports: [

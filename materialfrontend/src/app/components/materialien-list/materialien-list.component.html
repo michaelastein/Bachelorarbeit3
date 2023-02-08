@@ -1,5 +1,43 @@
 
 <div class="list row">
+
+  <div class="col-md-6">
+    <h4>Materialien Liste</h4>
+    <ul class="list-group">
+      <li class="list-group-item"
+          *ngFor="let material of materialien; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setActiveMaterial(material, i)">
+        {{ material.name }}
+      </li>
+    </ul>
+
+    
+  </div>
+  <div class="col-md-6">
+    <div *ngIf="currentMaterial">
+      <h4>Material</h4>
+      <div>
+        <label><strong>Name:</strong></label> {{ currentMaterial.name }}
+      </div>
+      <div>
+        <label><strong>Biokompatibel:</strong></label>
+        {{ currentMaterial.biokompatibel ? "Biokompatibel" : "Nicht Biokompatibel"}}
+      </div>
+      <div>
+        <label><strong>Elastisch:</strong></label>
+        {{ currentMaterial.elastisch ? "Elastisch" : "Nicht Elastisch" }}
+      </div>
+
+     
+    </div>
+
+    <div *ngIf="!currentMaterial">
+      <br />
+      <p>Please click on a Material...</p>
+    </div>
+  </div>
+
   <div class="col-md-8">
     <div class="input-group mb-3">
       <input type="text"
@@ -13,46 +51,6 @@
           Search
         </button>
       </div>
-    </div>
-  </div>
-  <div class="col-md-6">
-    <h4>Materialien Liste</h4>
-    <ul class="list-group">
-      <li class="list-group-item"
-          *ngFor="let material of materialien; let i = index"
-          [class.active]="i == currentIndex"
-          (click)="setActiveMaterial(material, i)">
-        {{ material.name }}
-      </li>
-    </ul>
-
-    <button class="m-3 btn btn-sm btn-danger" (click)="removeAllMaterialien()">
-      Remove All
-    </button>
-  </div>
-  <div class="col-md-6">
-    <div *ngIf="currentMaterial">
-      <h4>Material</h4>
-      <div>
-        <label><strong>Name:</strong></label> {{ currentMaterial.name }}
-      </div>
-      <div>
-        <label><strong>Biokompatibel:</strong></label>
-        {{ currentMaterial.biokompatibel ? "Biokompatibel" : "Nicht Biokompatibel"}}
-      </div>
-      <div>
-        <label><strong>Flexibel:</strong></label>
-        {{ currentMaterial.flexibel ? "Flexibel" : "Nicht Flexibel" }}
-      </div>
-
-      <a class="badge badge-warning" routerLink="/materialien/{{ currentMaterial.id }}">
-        Edit
-      </a>
-    </div>
-
-    <div *ngIf="!currentMaterial">
-      <br />
-      <p>Please click on a Material...</p>
     </div>
   </div>
 </div>
