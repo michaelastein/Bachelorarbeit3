@@ -21,6 +21,9 @@
         <label><strong>Name:</strong></label> {{ currentMaterial.name }}
       </div>
       <div>
+        <label><strong>ID:</strong></label> {{ currentMaterial.id }}
+      </div>
+      <div>
         <label><strong>Biokompatibel:</strong></label>
         {{ currentMaterial.biokompatibel ? "Biokompatibel" : "Nicht Biokompatibel"}}
       </div>
@@ -29,7 +32,7 @@
         {{ currentMaterial.elastisch ? "Elastisch" : "Nicht Elastisch" }}
       </div>
 
-     
+
     </div>
 
     <div *ngIf="!currentMaterial">

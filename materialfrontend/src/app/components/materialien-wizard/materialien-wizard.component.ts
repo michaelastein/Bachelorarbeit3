@@ -57,11 +57,11 @@ export class MaterialienWizardComponent implements OnInit {
     //eigentlich find mit this.newdata
     this.MaterialienService.getAll()
       .subscribe({
-        next: (res) => {
+        next: (res:any) => {
           console.log(res);
           this.submitted = true;
 
-          this.Ausgabe = res;
+          this.Ausgabe = JSON.stringify(res);
         },
         error: (e) => console.error(e)
       });

@@ -24,10 +24,7 @@ class KunststoffeSerializer(serializers.ModelSerializer):
 
     """def getFields(self, declared_fields):
         return super(KunststoffeSerializer, self).get_field_names(declared_fields);
-        """
-
-
-        """
+     
         fields = ('name',
                   'handelsname',
                   'verfahren',

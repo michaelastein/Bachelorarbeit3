@@ -13,7 +13,6 @@ import { TutorialsListComponent } from './components/tutorials-list/tutorials-li
 import { MaterialienWizardComponent } from './components/materialien-wizard/materialien-wizard.component';
 import { MaterialienListComponent } from './components/materialien-list/materialien-list.component';
 //import { DynamicTableComponent } from './dynamic-table/dynamic-table.component';
-import { DataTablesModule } from 'angular-datatables';
 
 @NgModule({
   declarations: [
@@ -24,7 +23,7 @@ import { DataTablesModule } from 'angular-datatables';
     MaterialienWizardComponent,
     MaterialienListComponent,
     //DynamicTableComponent,
-    DataTablesModule,
+    
 
   ],
   imports: [
