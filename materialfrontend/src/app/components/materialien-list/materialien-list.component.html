@@ -21,15 +21,20 @@
         <label><strong>Name:</strong></label> {{ currentMaterial.name }}
       </div>
       <div>
-        <label><strong>ID:</strong></label> {{ currentMaterial.id }}
+        <label><strong>Verfahren:</strong></label>
+        {{ currentMaterial.verfahren}}
       </div>
       <div>
         <label><strong>Biokompatibel:</strong></label>
-        {{ currentMaterial.biokompatibel ? "Biokompatibel" : "Nicht Biokompatibel"}}
+        {{ currentMaterial.biokompatibel ? "Ja" : "Nein"}}
       </div>
       <div>
         <label><strong>Elastisch:</strong></label>
-        {{ currentMaterial.elastisch ? "Elastisch" : "Nicht Elastisch" }}
+        {{ currentMaterial.elastisch ? "Ja" : "Nein" }}
+      </div>
+      <div>
+        <label><strong>Vorteile:</strong></label>
+        {{ currentMaterial.vorteile}}
       </div>
 
 
