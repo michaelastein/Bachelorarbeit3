@@ -32,7 +32,7 @@ export class Materialien {
   abrieb_bestaendig?: boolean;
   sterilisierbar?: boolean;
   entflammbar?: boolean; 
-                  
+  bereiche?: string;               
                  
   verwendung?: string;
 

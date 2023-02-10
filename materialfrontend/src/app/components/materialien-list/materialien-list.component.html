@@ -16,25 +16,152 @@
   </div>
   <div class="col-md-6">
     <div *ngIf="currentMaterial">
-      <h4>Material</h4>
+      <h4><strong>{{ currentMaterial.name }}</strong></h4>
       <div>
-        <label><strong>Name:</strong></label> {{ currentMaterial.name }}
+        <label><strong>Fachbezeichnung:</strong></label>
+        {{ currentMaterial.fachbezeichnung}}
       </div>
+      <div>
+        <label><strong>Handelsname:</strong></label>
+        {{ currentMaterial.handelsname}}
+      </div>
+
       <div>
         <label><strong>Verfahren:</strong></label>
         {{ currentMaterial.verfahren}}
       </div>
+      <p></p>
       <div>
-        <label><strong>Biokompatibel:</strong></label>
-        {{ currentMaterial.biokompatibel ? "Ja" : "Nein"}}
+        <label><strong>Wärmeformbeständigkeit bis:</strong></label>
+        {{ currentMaterial.waermeformbestaendigkeit}}
+      </div>
+      <div>
+        <label><strong>Glasübergangstemperatur:</strong></label>
+        {{ currentMaterial.glasuebergangstemp}}
+      </div>
+
+      <div>
+        <label><strong>Sehr Temperaturbeständig:</strong></label>
+        {{ currentMaterial.temperaturbestaendig ? "Ja" : "Nein"}}
+      </div>
+      <div>
+        <label><strong>Geeignet für tiefe Temperaturen bis:</strong></label>
+        {{ currentMaterial.temp_kalt}}
+      </div>
+      <p></p>
+
+      <div>
+        <label><strong>Härte (Shore D):</strong></label>
+        {{ currentMaterial.haerte}}
+      </div>
+
+      <div>
+        <label><strong>Dichte (in mm<sup>3</sup>):</strong></label>
+        {{ currentMaterial.dichte}}
+      </div>
+      <div>
+        <label><strong>min. benötigte Wandstärke (in mm):</strong></label>
+        {{ currentMaterial.wandstaerke}}
+      </div>
+
+
+      <div>
+        <label><strong>Hohe Festigkeit:</strong></label>
+        {{ currentMaterial.festigkeit ? "Ja" : "Nein"}}
+      </div>
+      <div>
+        <label><strong>Bruch- und schlagfest:</strong></label>
+        {{ currentMaterial.bruchfest ? "Ja" : "Nein"}}
       </div>
       <div>
         <label><strong>Elastisch:</strong></label>
         {{ currentMaterial.elastisch ? "Ja" : "Nein" }}
       </div>
+
+      <div>
+        <label><strong>transparent:</strong></label>
+        {{ currentMaterial.lebensmittelecht ? "Ja" : "Nein" }}
+      </div>
+      <div>
+        <label><strong>langlebig:</strong></label>
+        {{ currentMaterial.langlebig ? "Ja" : "Nein" }}
+      </div>
+      <p></p>
+      <div><h5><strong>Beständig gegen:</strong></h5></div>
+      <div>
+        <label><strong>UV-Strahlung:</strong></label>
+        {{ currentMaterial.uvbestaendig ? "Ja" : "Nein" }}
+      </div>
+      <div>
+        <label><strong>Witterung:</strong></label>
+        {{ currentMaterial.witterungsbestaendig ? "Ja" : "Nein" }}
+      </div>
+      <div>
+        <label><strong>Chemikalien:</strong></label>
+        {{ currentMaterial.chemisch_bestaendig ? "Ja" : "Nein" }}
+      </div>
+      <div>
+        <label><strong>Öle und Fette:</strong></label>
+        {{ currentMaterial.oele_bestaendig ? "Ja" : "Nein" }}
+      </div>
+      <div>
+        <label><strong>Feuchtigkeit:</strong></label>
+        {{ currentMaterial.feuchtigkeits_bestaendig ? "Ja" : "Nein" }}
+      </div>
+
+      <p></p>
+      <p></p>
+
+
+
+      <div>
+        <label><strong>Lebensmittelecht:</strong></label>
+        {{ currentMaterial.lebensmittelecht ? "Ja" : "Nein" }}
+      </div>
+
+
+
+
+      <div>
+        <label><strong>Biokompatibel:</strong></label>
+        {{ currentMaterial.biokompatibel ? "Ja" : "Nein"}}
+      </div>
+
+      <div>
+        <label><strong>Sterilisierbar:</strong></label>
+        {{ currentMaterial.sterilisierbar ? "Ja" : "Nein" }}
+      </div>
+      <div>
+        <label><strong>Schwer entflammbar:</strong></label>
+        {{ currentMaterial.entflammbar ? "Ja" : "Nein" }}
+      </div>
+      <div>
+        <label><strong>Umweltverträglich:</strong></label>
+        {{ currentMaterial.umweltvertraeglich ? "Ja" : "Nein" }}
+      </div>
+
+      <div>
+        <label><strong>Firmeneigen:</strong></label>
+        {{ currentMaterial.firmeneigen ? "Ja" : "Nein"}}
+      </div>
+
+
+      <p></p>
+      <div>
+        <label><strong>Einsatzbereiche:</strong></label>
+        {{ currentMaterial.bereiche }}
+      </div>
+      <div>
+        <label><strong>Verwendung:</strong></label>
+        {{ currentMaterial.verwendung }}
+      </div>
       <div>
         <label><strong>Vorteile:</strong></label>
         {{ currentMaterial.vorteile}}
+      </div>
+      <div>
+        <label><strong>Nachteile:</strong></label>
+        {{ currentMaterial.nachteile}}
       </div>
 
 

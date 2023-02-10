@@ -15,6 +15,8 @@ class Kunststoffe(models.Model):
      verfahren = models.TextField()
      firmeneigen = models.BooleanField(default=0)
      waermeformbestaendigkeit = models.IntegerField()
+     haerte = models.IntegerField()
+
      glasuebergangstemp = models.IntegerField()
      temp_kalt = models.IntegerField()
      temperaturbestaendig = models.BooleanField(default= 0)
@@ -35,8 +37,9 @@ class Kunststoffe(models.Model):
      feuchtigkeits_bestaendig = models.BooleanField(default = 0)
      abrieb_bestaendig = models.BooleanField(default = 0)
      sterilisierbar = models.BooleanField(default = 0)
-     entflammbar = models.BooleanField(default = 0) #schwer entflammbar
+     entflammbar = models.BooleanField(default = 0)
      bereiche = models.TextField()
+     verwendung = models.TextField()
      vorteile = models.TextField()
      nachteile = models.TextField()
 
