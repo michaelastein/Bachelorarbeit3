@@ -1,9 +1,11 @@
+import json
 from django.shortcuts import render
 from .models import *
 from .serializers import *
 from django.http import JsonResponse
 from rest_framework.parsers import JSONParser
 from rest_framework import status
+
 
 from django.http.response import JsonResponse
  
@@ -104,3 +106,15 @@ def materialien_list(request):
         return JsonResponse(kunststoffe_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
  
  
+@api_view(['GET', 'PUT', 'DELETE'])
+def materialien_detail(request, pk):
+    # find tutorial by pk (id)
+    try: 
+        material = Kunststoffe.objects.get(id=pk) 
+    except Kunststoffe.DoesNotExist: 
+        return JsonResponse({'message': 'The material does not exist'}, status=status.HTTP_404_NOT_FOUND) 
+ 
+    # GET / PUT / DELETE tutorial
+    if request.method == 'GET': 
+        materialien_serializer = KunststoffeSerializer(material) 
+        return JsonResponse(materialien_serializer.data)

@@ -19,8 +19,8 @@ class KunststoffeSerializer(serializers.ModelSerializer):
         #model = pd.read_csv("tabelleExport.csv", sep=';', decimal=',', encoding='latin1')
         model = Kunststoffe
         
-#       fields = Kunststoffe._meta.get_fields
-        fields = '__all__'
+        fields = [field.name for field in Kunststoffe._meta.get_fields()]
+#        fields = '__all__'
 
     """def getFields(self, declared_fields):
         return super(KunststoffeSerializer, self).get_field_names(declared_fields);

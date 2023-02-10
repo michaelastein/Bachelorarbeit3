@@ -10,4 +10,6 @@ urlpatterns = [
 
 
     re_path(r'^api/materialien$', views.materialien_list),
+    re_path(r'^api/materialien/(?P<pk>[0-9]+)$', views.materialien_detail),
+
 ]
