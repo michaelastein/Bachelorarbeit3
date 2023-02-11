@@ -10,7 +10,9 @@ import { MaterialienListComponent } from 'src/app/components/materialien-list/ma
 @Component({
   selector: 'app-materialien-wizard',
   templateUrl: './materialien-wizard.component.html',
-  styleUrls: ['./materialien-wizard.component.css']
+  styleUrls: ['./materialien-wizard.component.css'],
+  
+
 })
 export class MaterialienWizardComponent implements OnInit {
   form!: FormGroup;
@@ -22,7 +24,7 @@ export class MaterialienWizardComponent implements OnInit {
   newdata!: string;
   Ausgabe: any;
   ausgabereturn: any;
-  mat!: Materialien[];
+  materialien?: Materialien[];
 
 
 
@@ -36,7 +38,15 @@ export class MaterialienWizardComponent implements OnInit {
 
     });
     this.newdata = "";
-    
+    this.MaterialienService.getAll()
+      .subscribe(
+        data => {
+          this.materialien = data;
+          console.log(data);
+        },
+        error => {
+          console.log(error);
+        });
    
   }
 
@@ -45,7 +55,7 @@ export class MaterialienWizardComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-
+    
     this.dataCheckboxes = JSON.stringify(this.form.value, null);
     this.newdata = this.dataCheckboxes.replace(",", "&");
     this.newdata = this.newdata.replace("{", "?");
@@ -63,8 +73,8 @@ export class MaterialienWizardComponent implements OnInit {
         next: (res:any) => {
           console.log(res);
           this.submitted = true;
-
-          this.Ausgabe = JSON.stringify(res);
+          this.materialien = res;
+          //this.Ausgabe = JSON.stringify(res);
         },
         error: (e) => console.error(e)
       });

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Materialien } from 'src/app/models/materialien.model';
 import { MaterialienService } from 'src/app/services/materialien.service';
 
@@ -8,15 +8,18 @@ import { MaterialienService } from 'src/app/services/materialien.service';
   styleUrls: ['./materialien-list.component.css']
 })
 export class MaterialienListComponent {
-  materialien?: Materialien[];
+  //materialien?: Materialien[];
   currentMaterial?: Materialien;
   currentIndex = -1;
   name = '';
+  Ausgabe: any;
+  @Input() materialien?: Materialien[]
+
 
   constructor(private materialienService: MaterialienService) { }
 
   ngOnInit(): void {
-    this.retrieveMaterialien();
+   // this.retrieveMaterialien();
   }
 
   retrieveMaterialien(): void {
@@ -64,6 +67,11 @@ export class MaterialienListComponent {
         error => {
           console.log(error);
         });
+  }
+
+  @Input()
+  setMaterial(materialien: Materialien[]): void {
+    this.materialien = materialien;
   }
 
 }

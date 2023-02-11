@@ -12,6 +12,7 @@ import { TutorialDetailsComponent } from './components/tutorial-details/tutorial
 import { TutorialsListComponent } from './components/tutorials-list/tutorials-list.component';
 import { MaterialienWizardComponent } from './components/materialien-wizard/materialien-wizard.component';
 import { MaterialienListComponent } from './components/materialien-list/materialien-list.component';
+import { UebersichtComponent } from './components/uebersicht/uebersicht.component';
 //import { DynamicTableComponent } from './dynamic-table/dynamic-table.component';
 
 @NgModule({
@@ -22,6 +23,7 @@ import { MaterialienListComponent } from './components/materialien-list/material
     TutorialsListComponent,
     MaterialienWizardComponent,
     MaterialienListComponent,
+    UebersichtComponent,
     //DynamicTableComponent,
     
 

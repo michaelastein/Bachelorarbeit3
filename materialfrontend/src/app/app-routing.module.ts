@@ -5,7 +5,7 @@ import { TutorialDetailsComponent } from './components/tutorial-details/tutorial
 import { AddTutorialComponent } from './components/add-tutorial/add-tutorial.component';
 import { MaterialienWizardComponent } from './components/materialien-wizard/materialien-wizard.component';
 import { MaterialienListComponent } from './components/materialien-list/materialien-list.component';
-
+import { UebersichtComponent } from './components/uebersicht/uebersicht.component';
 
 
 const routes: Routes = [
@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'tutorials/:id', component: TutorialDetailsComponent },
   { path: 'add', component: AddTutorialComponent },
   { path: 'materialien', component: MaterialienWizardComponent },
-  { path: 'uebersicht', component: MaterialienListComponent }
+  { path: 'uebersicht', component: UebersichtComponent },
 ];
 
 @NgModule({
