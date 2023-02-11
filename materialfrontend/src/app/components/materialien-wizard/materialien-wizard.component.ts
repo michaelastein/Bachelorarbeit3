@@ -50,12 +50,15 @@ export class MaterialienWizardComponent implements OnInit {
     this.newdata = this.dataCheckboxes.replace(",", "&");
     this.newdata = this.newdata.replace("{", "?");
     this.newdata = this.newdata.replace("}", "");
-    this.newdata = this.newdata.replaceAll("\"", ""); //ersetzt nicht alle ""
+    this.newdata = this.newdata.replaceAll("\"", "");
+    this.newdata = this.newdata.replaceAll(":", "=");
+ 
+
 
 
     
     //eigentlich find mit this.newdata
-    this.MaterialienService.getAll()
+    this.MaterialienService.find(this.newdata)
       .subscribe({
         next: (res:any) => {
           console.log(res);

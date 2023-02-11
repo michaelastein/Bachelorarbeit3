@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'materialapp.apps.MaterialappConfig'
     'django_api_view',
+    'django_filters',
 ]
 
 MIDDLEWARE = [

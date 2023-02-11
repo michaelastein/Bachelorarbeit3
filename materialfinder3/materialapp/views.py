@@ -5,11 +5,11 @@ from .serializers import *
 from django.http import JsonResponse
 from rest_framework.parsers import JSONParser
 from rest_framework import status
-
+from .filter import MaterialFilter
 
 from django.http.response import JsonResponse
  
-
+from django.core import serializers
 from rest_framework.decorators import api_view
 
 
@@ -81,7 +81,7 @@ def tutorial_list_published(request):
 def materialien_list(request):
     # GET list of materialien, POST a new tutorial, DELETE all materialien
     if request.method == 'GET':
-        materials = Kunststoffe.objects.all()
+        materials = Materialien.objects.all()
         
         #name = request.GET.filter('name', None)  #get?
         #if name is not None:
@@ -93,13 +93,13 @@ def materialien_list(request):
 
 
         
-        kunststoffe_serializer = KunststoffeSerializer(materials, many=True)
+        kunststoffe_serializer = MaterialienSerializer(materials, many=True)
         return JsonResponse(kunststoffe_serializer.data, safe=False)
     
         # 'safe=False' for objects serialization
     elif request.method == 'POST':
         materials_data = JSONParser().parse(request)
-        kunststoffe_serializer = KunststoffeSerializer(data=materials_data)
+        kunststoffe_serializer = MaterialienSerializer(data=materials_data)
         if kunststoffe_serializer.is_valid():
             kunststoffe_serializer.save()
             return JsonResponse(kunststoffe_serializer.data, status=status.HTTP_201_CREATED) 
@@ -110,11 +110,25 @@ def materialien_list(request):
 def materialien_detail(request, pk):
     # find tutorial by pk (id)
     try: 
-        material = Kunststoffe.objects.get(id=pk) 
-    except Kunststoffe.DoesNotExist: 
+        material = Materialien.objects.get(id=pk) 
+    except Materialien.DoesNotExist: 
         return JsonResponse({'message': 'The material does not exist'}, status=status.HTTP_404_NOT_FOUND) 
  
     # GET / PUT / DELETE tutorial
     if request.method == 'GET': 
-        materialien_serializer = KunststoffeSerializer(material) 
+        materialien_serializer = MaterialienSerializer(material) 
         return JsonResponse(materialien_serializer.data)
+
+
+    
+@api_view(['GET'])
+def materialien_search(request):
+    # GET list of materials with theses attributes
+    
+        filter = MaterialFilter(request.GET, queryset=Materialien.objects.all())
+        ser = serializers.serialize('json',filter.qs )
+        #materialien_serializer = MaterialienSerializer(filter, many=True)
+        return JsonResponse( ser, safe = False)
+    
+        # 'safe=False' for objects serialization
+   

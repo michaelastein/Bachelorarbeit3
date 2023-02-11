@@ -8,7 +8,7 @@ class Tutorial(models.Model):
     description = models.CharField(max_length=200,blank=False, default='')
     published = models.BooleanField(default=False)
 
-class Kunststoffe(models.Model):
+class Materialien(models.Model):
      name = models.CharField(max_length = 200, default='')
      fachbezeichnung = models.CharField(max_length=100)
      handelsname = models.CharField(max_length=50)

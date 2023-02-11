@@ -13,13 +13,15 @@ class TutorialSerializer(serializers.ModelSerializer):
                   'description',
                   'published')
 
-class KunststoffeSerializer(serializers.ModelSerializer):
+
+
+class MaterialienSerializer(serializers.ModelSerializer):
  
     class Meta:
         #model = pd.read_csv("tabelleExport.csv", sep=';', decimal=',', encoding='latin1')
-        model = Kunststoffe
+        model = Materialien
         
-        fields = [field.name for field in Kunststoffe._meta.get_fields()]
+        fields = [field.name for field in Materialien._meta.get_fields()]
 #        fields = '__all__'
 
     """def getFields(self, declared_fields):

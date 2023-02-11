@@ -8,7 +8,7 @@
           *ngFor="let material of materialien; let i = index"
           [class.active]="i == currentIndex"
           (click)="setActiveMaterial(material, i)">
-        {{ material.name }}
+        {{ material.name }} {{ material.handelsname}}
       </li>
     </ul>
 
@@ -21,10 +21,7 @@
         <label><strong>Fachbezeichnung:</strong></label>
         {{ currentMaterial.fachbezeichnung}}
       </div>
-      <div>
-        <label><strong>Handelsname:</strong></label>
-        {{ currentMaterial.handelsname}}
-      </div>
+      
 
       <div>
         <label><strong>Verfahren:</strong></label>
@@ -74,7 +71,7 @@
         {{ currentMaterial.bruchfest ? "Ja" : "Nein"}}
       </div>
       <div>
-        <label><strong>Elastisch:</strong></label>
+        <label><strong>Flexibel:</strong></label>
         {{ currentMaterial.elastisch ? "Ja" : "Nein" }}
       </div>
 

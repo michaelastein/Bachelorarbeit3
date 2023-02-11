@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Materialien } from '../models/materialien.model';
 
 const baseUrl = '/api/materialien';
+const searchUrl = '/api/search';
 /*http://localhost:8080/api
  */
 
@@ -43,8 +44,9 @@ export class MaterialienService {
 
   find(terms: any): Observable<Materialien[]> {
     
-    return this.http.get<Materialien[]>(`${baseUrl}{terms}`);
+    return this.http.get<Materialien[]>(`${searchUrl}${terms}`);
   }
+
 
   findByName(name: any): Observable<Materialien[]> {
     console.log("find" + `${baseUrl}?name=${name}`)
