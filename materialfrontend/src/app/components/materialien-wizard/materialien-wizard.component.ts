@@ -35,6 +35,7 @@ export class MaterialienWizardComponent implements OnInit {
       waermeformbestaendigkeit: [100],
       haerte: [70],
       wandstaerke: [1],
+      dichte:[1],
 
       biokompatibel: [false],
       elastisch: [false],
