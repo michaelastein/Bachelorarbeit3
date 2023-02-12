@@ -111,6 +111,7 @@ export class MaterialienWizardComponent implements OnInit {
   onReset() {
     this.submitted = false;
     this.form.reset();
+
   }
 
 }
