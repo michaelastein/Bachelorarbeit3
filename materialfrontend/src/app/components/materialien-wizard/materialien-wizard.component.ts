@@ -34,7 +34,22 @@ export class MaterialienWizardComponent implements OnInit {
     this.form = this.formBuilder.group({
       biokompatibel: [false],
       elastisch: [false],
-
+      
+      temperaturbestaendig: [false],
+      festigkeit: [false],
+      bruchfest: [false],
+      lebensmittelecht: [false],
+      transparent: [false],
+      uvbestaendig: [false],
+      witterungsbestaendig: [false],
+      langlebig: [false],
+      umweltvertraeglich: [false],
+      chemisch_bestaendig: [false],
+      oele_bestaendig: [false],
+      feuchtigkeits_bestaendig: [false],
+      abrieb_bestaendig: [false],
+      sterilisierbar: [false],
+      entflammbar: [false],
 
     });
     this.newdata = "";
@@ -54,14 +69,15 @@ export class MaterialienWizardComponent implements OnInit {
   get f() { return this.form.controls; }
 
   onSubmit() {
-    this.submitted = true;
-    
+    this.submitted = true;    
+  
     this.dataCheckboxes = JSON.stringify(this.form.value, null);
-    this.newdata = this.dataCheckboxes.replace(",", "&");
+    this.newdata = this.dataCheckboxes.replaceAll(",", "&");
     this.newdata = this.newdata.replace("{", "?");
     this.newdata = this.newdata.replace("}", "");
     this.newdata = this.newdata.replaceAll("\"", "");
     this.newdata = this.newdata.replaceAll(":", "=");
+    
  
 
 

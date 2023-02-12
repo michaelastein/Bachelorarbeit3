@@ -1,15 +1,88 @@
 
-
+<style>
+  label {
+    display: inline-block;
+    width: 165px;
+  }
+</style>
 <div class="card m-3">
   <h6 class="card-header">Materialfinder</h6>
   <div class="card-body">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
       <div class="form-group form-check">
-        <input type="checkbox" formControlName='biokompatibel' id='biokompatibel' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
-        <label for="biokompatibel" class="form-check-label">biokompatibel</label>
+
+
+
+        <input type="checkbox" formControlName='festigkeit' id='festigkeit' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
+        <label for="festigkeit" class="form-check-label">Hohe Festigkeit</label>
+
+        <input type="checkbox" formControlName='bruchfest' id='bruchfest' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
+        <label for="bruchfest" class="form-check-label">Bruchfest</label>
+
         <input type="checkbox" formControlName='elastisch' id='elastisch' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
-        <label for="elastisich" class="form-check-label">flexibel</label>
-        <!-- <div *ngIf="submitted " class="invalid-feedback">Accept Ts & Cs is required</div> -->
+        <label for="elastisch" class="form-check-label">Flexibel</label>
+
+        <input type="checkbox" formControlName='langlebig' id='langlebig' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
+        <label for="langlebig" class="form-check-label">Langlebig</label>
+
+        <input type="checkbox" formControlName='transparent' id='transparent' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
+        <label for="transparent" class="form-check-label">Transparent</label>
+
+
+      </div>
+      <h6><strong>Beständig gegen:</strong></h6>
+      <div class="form-group form-check">
+
+
+
+        <input type="checkbox" formControlName='uvbestaendig' id='uvbestaendig' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
+        <label for="uvbestaendig" class="form-check-label">UV-Strahlung</label>
+
+        <input type="checkbox" formControlName='feuchtigkeits_bestaendig' id='feuchtigkeits_bestaendig' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
+        <label for="feuchtigkeits_bestaendig" class="form-check-label">Feuchtigkeit</label>
+
+        <input type="checkbox" formControlName='temperaturbestaendig' id='temperaturbestaendig' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
+        <label for="temperaturbestaendig" class="form-check-label">Hohe Temperaturen</label>
+
+       
+      </div>
+      <div class="form-group form-check">
+        <input type="checkbox" formControlName='chemisch_bestaendig' id='chemisch_bestaendig' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
+        <label for="chemisch_bestaendig" class="form-check-label">Chemikalien</label>
+
+        <input type="checkbox" formControlName='oele_bestaendig' id='oele_bestaendig' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
+        <label for="oele_bestaendig" class="form-check-label">Öle und Fette</label>
+
+        <input type="checkbox" formControlName='abrieb_bestaendig' id='abrieb_bestaendig' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
+        <label for="abrieb_bestaendig" class="form-check-label">Abrieb</label>
+
+        <input type="checkbox" formControlName='witterungsbestaendig' id='witterungsbestaendig' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
+        <label for="witterungsbestaendig" class="form-check-label">Witterungseinflüsse</label>
+
+
+      </div>
+      <h6><strong>Sonstige Eigenschaften:</strong></h6>
+      <div class="form-group form-check">
+
+        <input type="checkbox" formControlName='lebensmittelecht' id='lebensmittelecht' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
+        <label for="lebensmittelecht" class="form-check-label">Lebensmittelecht</label>
+
+        <input type="checkbox" formControlName='umweltvertraeglich' id='umweltvertraeglich' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
+        <label for="umweltvertraeglich" class="form-check-label">Umweltverträglich</label>
+
+        <input type="checkbox" formControlName='sterilisierbar' id='sterilisierbar' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
+        <label for="sterilisierbar" class="form-check-label">Sterilisierbar</label>
+
+        <input type="checkbox" formControlName='biokompatibel' id='biokompatibel' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
+        <label for="biokompatibel" class="form-check-label">Biokompatibel</label>
+
+        <input type="checkbox" formControlName='entflammbar' id='entflammbar' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
+        <label for="entflammbar" class="form-check-label">Schwer entflammbar</label>
+
+
+
+
       </div>
       <div>
         <button class="btn btn-primary mr-1">Submit</button>
