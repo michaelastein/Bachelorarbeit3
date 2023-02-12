@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, AbstractControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { Materialien } from 'src/app/models/materialien.model';
@@ -75,14 +75,27 @@ export class MaterialienWizardComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;    
-  
+    
+   
+
     this.dataCheckboxes = JSON.stringify(this.form.value, null);
     this.newdata = this.dataCheckboxes.replaceAll(",", "&");
     this.newdata = this.newdata.replace("{", "?");
     this.newdata = this.newdata.replace("}", "");
     this.newdata = this.newdata.replaceAll("\"", "");
     this.newdata = this.newdata.replaceAll(":", "=");
-    
+
+    var split = this.newdata.split("&")
+    for (let i = 0; i < split.length; i++) {
+      if (split[i].includes("false")) {
+        split[i] = ""
+      }
+      else {
+        split[i] = "&" + split[i]
+      }
+      
+    }
+    this.newdata = split.join("")
  
 
 
@@ -112,6 +125,10 @@ export class MaterialienWizardComponent implements OnInit {
     this.submitted = false;
     this.form.reset();
 
+  }
+
+  removeFalse(x: any) {
+    //if (x.value = False )
   }
 
 }
