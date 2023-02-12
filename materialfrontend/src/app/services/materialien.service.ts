@@ -50,6 +50,6 @@ export class MaterialienService {
 
   findByName(name: any): Observable<Materialien[]> {
     console.log("find" + `${baseUrl}?name=${name}`)
-    return this.http.get<Materialien[]>(`${baseUrl}?name=${name}`);
+    return this.http.get<Materialien[]>(`${searchUrl}?name=${name}`);
   }
 }
