@@ -69,15 +69,19 @@ export class MaterialienWizardComponent implements OnInit {
     
     //eigentlich find mit this.newdata
     this.MaterialienService.find(this.newdata)
-      .subscribe({
-        next: (res:any) => {
-          console.log(res);
+      .subscribe(
+        data => {
+
+
+          this.materialien = data;
+          console.log(data);
           this.submitted = true;
-          this.materialien = res;
-          //this.Ausgabe = JSON.stringify(res);
+          
+         // this.Ausgabe = JSON.stringify(data);
         },
-        error: (e) => console.error(e)
-      });
+        error => {
+          console.log(error);
+        });
     
    
 

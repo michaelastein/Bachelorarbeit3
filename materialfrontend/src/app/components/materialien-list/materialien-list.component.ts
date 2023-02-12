@@ -1,13 +1,15 @@
 import { Component, Input } from '@angular/core';
 import { Materialien } from 'src/app/models/materialien.model';
 import { MaterialienService } from 'src/app/services/materialien.service';
+import {  OnChanges, SimpleChanges, SimpleChange } from '@angular/core';
+
 
 @Component({
   selector: 'app-materialien-list',
   templateUrl: './materialien-list.component.html',
   styleUrls: ['./materialien-list.component.css']
 })
-export class MaterialienListComponent {
+export class MaterialienListComponent implements OnChanges {
   //materialien?: Materialien[];
   currentMaterial?: Materialien;
   currentIndex = -1;
@@ -21,6 +23,21 @@ export class MaterialienListComponent {
   ngOnInit(): void {
    // this.retrieveMaterialien();
   }
+
+  ngOnChanges(changes: SimpleChanges) {
+
+    for (let property in changes) {
+      if (property === 'materialien') {
+        console.log('Previous:', changes[property].previousValue);
+        console.log('Current:', changes[property].currentValue);
+        console.log('firstChange:', changes[property].firstChange);
+      }
+    }
+    this.currentMaterial = undefined;
+    this.currentIndex = -1;
+  }
+
+
 
   retrieveMaterialien(): void {
     this.materialienService.getAll()

@@ -13,6 +13,7 @@ from django.core import serializers
 from rest_framework.decorators import api_view
 
 
+
 # Create your views here.
 @api_view(['GET', 'POST', 'DELETE'])
 def tutorial_list(request):
@@ -127,8 +128,25 @@ def materialien_search(request):
     
         filter = MaterialFilter(request.GET, queryset=Materialien.objects.all())
         ser = serializers.serialize('json',filter.qs )
+        
+        #ser = ser.replace('{\"model\": \"materialapp.materialien\", \"pk\": 1, \"fields\":','' );
+        #ser = ser.replace("}}","}")
+        ser = json.loads(ser);
+        list = []
+        count = 0
+        while (count < len(ser)):
+            
+            list.append(ser[count]['fields'])
+            count = count +1
+                
+        
+        #ser = ser['fields']
+       
+        #ser = ser.replace('"model": "materialapp.materialien", "pk": 1, "fields": {','')
+        #ser = ser.replace("}}]","}]")
+        #ser = ser.replace("\"","")
         #materialien_serializer = MaterialienSerializer(filter, many=True)
-        return JsonResponse( ser, safe = False)
+        return JsonResponse( list, safe = False)
     
         # 'safe=False' for objects serialization
    
