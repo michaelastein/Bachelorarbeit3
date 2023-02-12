@@ -32,6 +32,10 @@ export class MaterialienWizardComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.formBuilder.group({
+      waermeformbestaendigkeit: [100],
+      haerte: [70],
+      wandstaerke: [1],
+
       biokompatibel: [false],
       elastisch: [false],
       
