@@ -6,6 +6,9 @@ import { Observable, throwError } from 'rxjs';
 import { Materialien } from 'src/app/models/materialien.model';
 import { MaterialienService } from 'src/app/services/materialien.service';
 import { MaterialienListComponent } from 'src/app/components/materialien-list/materialien-list.component';
+import { IDropdownSettings, } from 'ng-multiselect-dropdown';
+
+
 
 @Component({
   selector: 'app-materialien-wizard',
@@ -25,12 +28,30 @@ export class MaterialienWizardComponent implements OnInit {
   Ausgabe: any;
   ausgabereturn: any;
   materialien?: Materialien[];
+  slider1: boolean = true;
 
+
+  dropdownList:any = [];
+  dropdownSettings: IDropdownSettings = {};
 
 
   constructor(private formBuilder: FormBuilder, private MaterialienService: MaterialienService) { }
 
   ngOnInit() {
+    this.dropdownList = [
+      { item_id: 1, item_text: 'FFF/FDM' },
+      { item_id: 2, item_text: 'SLS' },
+      { item_id: 3, item_text: 'SLA' },
+      { item_id: 4, item_text: 'SLM' },
+      { item_id: 5, item_text: 'Polyjet' },
+      { item_id: 6, item_text: 'andere' }
+
+    ];
+    this.dropdownSettings = {
+      idField: 'item_id',
+      textField: 'item_text',
+    };
+
     this.form = this.formBuilder.group({
       waermeformbestaendigkeit: [100],
       haerte: [70],
@@ -67,6 +88,9 @@ export class MaterialienWizardComponent implements OnInit {
         error => {
           console.log(error);
         });
+
+
+
    
   }
 
@@ -129,6 +153,10 @@ export class MaterialienWizardComponent implements OnInit {
 
   removeFalse(x: any) {
     //if (x.value = False )
+  }
+
+  toggleBeliebig1() {
+    this.slider1 = !this.slider1;
   }
 
 }

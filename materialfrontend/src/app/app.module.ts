@@ -14,6 +14,8 @@ import { MaterialienWizardComponent } from './components/materialien-wizard/mate
 import { MaterialienListComponent } from './components/materialien-list/materialien-list.component';
 import { UebersichtComponent } from './components/uebersicht/uebersicht.component';
 //import { DynamicTableComponent } from './dynamic-table/dynamic-table.component';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown'
+
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { UebersichtComponent } from './components/uebersicht/uebersicht.componen
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgMultiSelectDropDownModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
