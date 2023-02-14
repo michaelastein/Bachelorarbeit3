@@ -38,6 +38,7 @@ export class MaterialienWizardComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private MaterialienService: MaterialienService) { }
 
   ngOnInit() {
+    
     this.dropdownList = [
       { item_id: 1, item_text: 'FFF/FDM' },
       { item_id: 2, item_text: 'SLS' },
@@ -52,11 +53,12 @@ export class MaterialienWizardComponent implements OnInit {
       textField: 'item_text',
     };
 
+
     this.form = this.formBuilder.group({
-      waermeformbestaendigkeit: [100],
-      haerte: [70],
-      wandstaerke: [1],
-      dichte:[2],
+      waermeformbestaendigkeit: [0],
+      haerte: [30],
+      wandstaerke: [2],
+      dichte:[10],
 
       biokompatibel: [false],
       elastisch: [false],

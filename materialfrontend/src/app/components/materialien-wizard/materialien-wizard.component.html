@@ -22,21 +22,21 @@
       <h6><strong>Mechanische Eigenschaften:</strong></h6>
 
       <div class="slider">
-        Wärmeformbeständigkeit bis<input formControlName="waermeformbestaendigkeit" id="waermeformbestaendigkeit" type="range" min="0" max="1100" value="100" oninput="rangeValue.innerText = this.value">
-        <label id="rangeValue">100</label>
+        Für Temperaturen bis min.<input formControlName="waermeformbestaendigkeit" id="waermeformbestaendigkeit" type="range" min="0" max="1100" value="0" oninput="rangeValue.innerText = this.value">
+        <label id="rangeValue">0</label>
         
       </div>
       <div class="slider">
-        Härte (Shore D) <input formControlName="haerte" id="haerte" type="range" min="0" max="100" value="70" oninput="rangeValue2.innerText = this.value">
-        <label id="rangeValue2">70</label>
+        Härte (Shore D) min.<input formControlName="haerte" id="haerte" type="range" min="30" max="100" value="30" oninput="rangeValue2.innerText = this.value">
+        <label id="rangeValue2">30</label>
       </div>
       <div class="slider">
-        Min. Wandstärke (in mm)<input formControlName="wandstaerke" id="wandstaerke" type="range" min="0" max="1" value="1" step="0.1" oninput="rangeValue3.innerText = this.value">
-        <label id="rangeValue3">1</label>
+        Min. benötigte Wandstärke (in mm)<input formControlName="wandstaerke" id="wandstaerke" type="range" min="0" max="2" value="2" step="0.1" oninput="rangeValue3.innerText = this.value">
+        <label id="rangeValue3">2</label>
       </div>
       <div class="slider">
-        Max. Dichte (in mm<sup>3</sup>)<input formControlName="dichte" id="dichte" type="range" min="0" max="10" value="2" step="0.1" oninput="rangeValue4.innerText = this.value">
-        <label id="rangeValue4">2</label>
+        Max. Dichte (in mm<sup>3</sup>)<input formControlName="dichte" id="dichte" type="range" min="0" max="10" value="10" step="0.1" oninput="rangeValue4.innerText = this.value">
+        <label id="rangeValue4">10</label>
       </div>
 
       <div class="form-group form-check">
