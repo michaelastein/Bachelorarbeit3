@@ -78,7 +78,7 @@ export class MaterialienWizardComponent implements OnInit {
       abrieb_bestaendig: [false],
       sterilisierbar: [false],
       entflammbar: [false],
-
+      temp_kalt: [false],
     });
     this.newdata = "";
     this.MaterialienService.getAll()
@@ -153,9 +153,7 @@ export class MaterialienWizardComponent implements OnInit {
 
   }
 
-  removeFalse(x: any) {
-    //if (x.value = False )
-  }
+
 
   toggleBeliebig1() {
     this.slider1 = !this.slider1;

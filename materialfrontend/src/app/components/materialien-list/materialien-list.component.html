@@ -56,7 +56,7 @@
       <ng-template [ngIf]="currentMaterial.temp_kalt != 0">
 
         <div>
-          <label><strong>Geeignet für tiefe Temperaturen bis:</strong></label>
+          <label><strong>Geeignet für niedrige Temperaturen bis:</strong></label>
           {{ currentMaterial.temp_kalt}}°C
         </div>
       </ng-template>
@@ -129,129 +129,133 @@
       </ng-template>
 
       <p></p>
-
-      <ng-template [ngIf]="currentMaterial.uvbestaendig">
-
+      <ng-template [ngIf]="currentMaterial.uvbestaendig||currentMaterial.witterungsbestaendig ||currentMaterial.chemisch_bestaendig ||currentMaterial.oele_bestaendig || currentMaterial.feuchtigkeits_bestaendig">
         <div><h5><strong>Beständig gegen:</strong></h5></div>
-        <div>
-          <label><strong>UV-Strahlung:</strong></label>
-          {{ currentMaterial.uvbestaendig ? "Ja" : "Nein" }}
-        </div>
       </ng-template>
 
 
-      <ng-template [ngIf]="currentMaterial.witterungsbestaendig">
-
-        <div>
-          <label><strong>Witterung:</strong></label>
-          {{ currentMaterial.witterungsbestaendig ? "Ja" : "Nein" }}
-        </div>
-      </ng-template>
-
-      <ng-template [ngIf]="currentMaterial.chemisch_bestaendig">
-
-        <div>
-          <label><strong>Chemikalien:</strong></label>
-          {{ currentMaterial.chemisch_bestaendig ? "Ja" : "Nein" }}
-        </div>
-      </ng-template>
-
-      <ng-template [ngIf]="currentMaterial.oele_bestaendig">
-
-        <div>
-          <label><strong>Öle und Fette:</strong></label>
-          {{ currentMaterial.oele_bestaendig ? "Ja" : "Nein" }}
-        </div>
-      </ng-template>
-
-      <ng-template [ngIf]="currentMaterial.feuchtigkeits_bestaendig">
-
-        <div>
-          <label><strong>Feuchtigkeit:</strong></label>
-          {{ currentMaterial.feuchtigkeits_bestaendig ? "Ja" : "Nein" }}
-        </div>
-      </ng-template>
-
-      <p></p>
-      <p></p>
+        <ng-template [ngIf]="currentMaterial.uvbestaendig">
 
 
-      <ng-template [ngIf]="currentMaterial.lebensmittelecht">
-
-        <div>
-          <label><strong>Lebensmittelecht:</strong></label>
-          {{ currentMaterial.lebensmittelecht ? "Ja" : "Nein" }}
-        </div>
-      </ng-template>
+          <div>
+            <label><strong>UV-Strahlung:</strong></label>
+            {{ currentMaterial.uvbestaendig ? "Ja" : "Nein" }}
+          </div>
+        </ng-template>
 
 
+        <ng-template [ngIf]="currentMaterial.witterungsbestaendig">
 
-      <ng-template [ngIf]="currentMaterial.biokompatibel">
+          <div>
+            <label><strong>Witterung:</strong></label>
+            {{ currentMaterial.witterungsbestaendig ? "Ja" : "Nein" }}
+          </div>
+        </ng-template>
 
-        <div>
-          <label><strong>Biokompatibel:</strong></label>
-          {{ currentMaterial.biokompatibel ? "Ja" : "Nein"}}
-        </div>
-      </ng-template>
+        <ng-template [ngIf]="currentMaterial.chemisch_bestaendig">
 
-      <ng-template [ngIf]="currentMaterial.sterilisierbar">
+          <div>
+            <label><strong>Chemikalien:</strong></label>
+            {{ currentMaterial.chemisch_bestaendig ? "Ja" : "Nein" }}
+          </div>
+        </ng-template>
 
-        <div>
-          <label><strong>Sterilisierbar:</strong></label>
-          {{ currentMaterial.sterilisierbar ? "Ja" : "Nein" }}
-        </div>
-      </ng-template>
+        <ng-template [ngIf]="currentMaterial.oele_bestaendig">
 
-      <ng-template [ngIf]="currentMaterial.entflammbar">
+          <div>
+            <label><strong>Öle und Fette:</strong></label>
+            {{ currentMaterial.oele_bestaendig ? "Ja" : "Nein" }}
+          </div>
+        </ng-template>
 
-        <div>
-          <label><strong>Schwer entflammbar:</strong></label>
-          {{ currentMaterial.entflammbar ? "Ja" : "Nein" }}
-        </div>
-      </ng-template>
+        <ng-template [ngIf]="currentMaterial.feuchtigkeits_bestaendig">
 
-      <ng-template [ngIf]="currentMaterial.umweltvertraeglich">
-        <div>
-          <label><strong>Umweltverträglich:</strong></label>
-          {{ currentMaterial.umweltvertraeglich ? "Ja" : "Nein" }}
-        </div>
-      </ng-template>
+          <div>
+            <label><strong>Feuchtigkeit:</strong></label>
+            {{ currentMaterial.feuchtigkeits_bestaendig ? "Ja" : "Nein" }}
+          </div>
+        </ng-template>
 
-      <ng-template [ngIf]="!currentMaterial.firmeneigen">
-        <div>
-          <label><strong>Frei verfügbar:</strong></label>
-          {{ currentMaterial.firmeneigen ? "Nein" : "Ja"}}
-        </div>
-      </ng-template>
+        <p></p>
+        <p></p>
 
-      <p></p>
-      <ng-template [ngIf]="currentMaterial.bereiche !=''">
-        <div>
-          <label><strong>Einsatzbereiche:</strong></label>
-          {{ currentMaterial.bereiche }}
-        </div>
-      </ng-template>
-      <p></p>
-      <ng-template [ngIf]="currentMaterial.verwendung !=''">
-        <div>
-          <label><strong>Verwendung:</strong></label>
-          {{ currentMaterial.verwendung }}
-        </div>
-      </ng-template>
-      <p></p>
-      <ng-template [ngIf]="currentMaterial.vorteile !=''">
-        <div>
-          <label><strong>Vorteile:</strong></label>
-          {{ currentMaterial.vorteile}}
-        </div>
-      </ng-template>
-      <p></p>
-      <ng-template [ngIf]="currentMaterial.nachteile !=''">
-        <div>
-          <label><strong>Nachteile:</strong></label>
-          {{ currentMaterial.nachteile}}
-        </div>
-      </ng-template>
+
+        <ng-template [ngIf]="currentMaterial.lebensmittelecht">
+
+          <div>
+            <label><strong>Lebensmittelecht:</strong></label>
+            {{ currentMaterial.lebensmittelecht ? "Ja" : "Nein" }}
+          </div>
+        </ng-template>
+
+
+
+        <ng-template [ngIf]="currentMaterial.biokompatibel">
+
+          <div>
+            <label><strong>Biokompatibel:</strong></label>
+            {{ currentMaterial.biokompatibel ? "Ja" : "Nein"}}
+          </div>
+        </ng-template>
+
+        <ng-template [ngIf]="currentMaterial.sterilisierbar">
+
+          <div>
+            <label><strong>Sterilisierbar:</strong></label>
+            {{ currentMaterial.sterilisierbar ? "Ja" : "Nein" }}
+          </div>
+        </ng-template>
+
+        <ng-template [ngIf]="currentMaterial.entflammbar">
+
+          <div>
+            <label><strong>Schwer entflammbar:</strong></label>
+            {{ currentMaterial.entflammbar ? "Ja" : "Nein" }}
+          </div>
+        </ng-template>
+
+        <ng-template [ngIf]="currentMaterial.umweltvertraeglich">
+          <div>
+            <label><strong>Umweltverträglich:</strong></label>
+            {{ currentMaterial.umweltvertraeglich ? "Ja" : "Nein" }}
+          </div>
+        </ng-template>
+
+        <ng-template [ngIf]="!currentMaterial.firmeneigen">
+          <div>
+            <label><strong>Frei verfügbar:</strong></label>
+            {{ currentMaterial.firmeneigen ? "Nein" : "Ja"}}
+          </div>
+        </ng-template>
+
+        <p></p>
+        <ng-template [ngIf]="currentMaterial.bereiche !=''">
+          <div>
+            <label><strong>Einsatzbereiche:</strong></label>
+            {{ currentMaterial.bereiche }}
+          </div>
+        </ng-template>
+        <p></p>
+        <ng-template [ngIf]="currentMaterial.verwendung !=''">
+          <div>
+            <label><strong>Verwendung:</strong></label>
+            {{ currentMaterial.verwendung }}
+          </div>
+        </ng-template>
+        <p></p>
+        <ng-template [ngIf]="currentMaterial.vorteile !=''">
+          <div>
+            <label><strong>Vorteile:</strong></label>
+            {{ currentMaterial.vorteile}}
+          </div>
+        </ng-template>
+        <p></p>
+        <ng-template [ngIf]="currentMaterial.nachteile !=''">
+          <div>
+            <label><strong>Nachteile:</strong></label>
+            {{ currentMaterial.nachteile}}
+          </div>
+        </ng-template>
 
 
     </div>
