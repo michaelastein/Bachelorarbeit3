@@ -41,29 +41,35 @@ export class MaterialienWizardComponent implements OnInit {
   ngOnInit() {
     
     this.dropdownList = [
-      { item_id: 1, item_text: 'FFF/FDM' },
-      { item_id: 2, item_text: 'SLS' },
-      { item_id: 3, item_text: 'SLA' },
-      { item_id: 4, item_text: 'SLM' },
-      { item_id: 5, item_text: 'Polyjet' },
-      { item_id: 6, item_text: 'andere' }
+      { item_id: 1, verfahren: 'FFF/FDM' },
+      { item_id: 2, verfahren: 'SLS' },
+      { item_id: 3, verfahren: 'SLA' },
+      { item_id: 4, verfahren: 'SLM' },
+      { item_id: 5, verfahren: 'Polyjet' },
+      { item_id: 6, verfahren: 'DMLS' },
+      { item_id: 8, verfahren: 'DLS' },
+      { item_id: 9, verfahren: 'DLP' }
+
 
     ];
     this.dropdownSettings = {
       idField: 'item_id',
-      textField: 'item_text',
+      textField: 'verfahren',
     };
     this.selectedItems = [
-      { item_id: 1, item_text: 'FFF/FDM' },
-      { item_id: 2, item_text: 'SLS' },
-      { item_id: 3, item_text: 'SLA' },
-      { item_id: 4, item_text: 'SLM' },
-      { item_id: 5, item_text: 'Polyjet' },
-      { item_id: 6, item_text: 'andere' }
+      { item_id: 1, verfahren: 'FFF/FDM' },
+      { item_id: 2, verfahren: 'SLS' },
+      { item_id: 3, verfahren: 'SLA' },
+      { item_id: 4, verfahren: 'SLM' },
+      { item_id: 5, verfahren: 'Polyjet' },
+      { item_id: 6, verfahren: 'DMLS' },
+      { item_id: 8, verfahren: 'DLS' },
+      { item_id: 9, verfahren: 'DLP' }
     ];
 
 
     this.form = this.formBuilder.group({
+
       waermeformbestaendigkeit: [0],
       haerte: [30],
       wandstaerke: [2],
@@ -90,6 +96,8 @@ export class MaterialienWizardComponent implements OnInit {
       temp_kalt: [false],
 
       myItems: [this.selectedItems],
+
+
     });
     this.newdata = "";
     this.MaterialienService.getAll()
@@ -118,9 +126,19 @@ export class MaterialienWizardComponent implements OnInit {
     this.dataCheckboxes = JSON.stringify(this.form.value, null);
     this.newdata = this.dataCheckboxes.replaceAll(",", "&");
     this.newdata = this.newdata.replace("{", "?");
-    this.newdata = this.newdata.replace("}", "");
+    this.newdata = this.newdata.replaceAll("}", "");
     this.newdata = this.newdata.replaceAll("\"", "");
     this.newdata = this.newdata.replaceAll(":", "=");
+    this.newdata = this.newdata.replaceAll("{", "");
+    this.newdata = this.newdata.replaceAll("myItems=[", "");
+    this.newdata = this.newdata.replaceAll("]", "");
+
+    for (var i = 1; i <= 9; i++){
+      var str = "&item_id="+ i ;
+      this.newdata = this.newdata.replace(str, "");
+    }
+    this.newdata = this.newdata.replace("verfahren=FFF/FDM", "verfahren=FFF&verfahren=FDM");
+
 
     var split = this.newdata.split("&")
     for (let i = 0; i < split.length; i++) {

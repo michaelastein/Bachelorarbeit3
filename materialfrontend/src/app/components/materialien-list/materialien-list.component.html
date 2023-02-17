@@ -25,7 +25,7 @@
         </div>
       </ng-template>
 
-      <ng-template [ngIf]="currentMaterial.verfahren != '' ">
+      <ng-template [ngIf]="currentMaterial.verfahren != 'unbekannt' ">
         <div>
           <label><strong>Verfahren:</strong></label>
           {{ currentMaterial.verfahren}}

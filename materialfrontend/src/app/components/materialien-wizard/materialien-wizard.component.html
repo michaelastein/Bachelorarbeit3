@@ -10,12 +10,13 @@
   <div class="card-body">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
+
       <h6><strong>Verfahren</strong></h6>
-      <div style="width:50%">
-          <ng-multiselect-dropdown [settings]="dropdownSettings"
-                                   [data]="dropdownList"
-                                   formControlName="myItems">
-          </ng-multiselect-dropdown>
+      <div style="width:60%">
+        <ng-multiselect-dropdown [settings]="dropdownSettings"
+                                 [data]="dropdownList"
+                                 formControlName="myItems">
+        </ng-multiselect-dropdown>
       </div>
       <p></p>
 
@@ -24,7 +25,7 @@
       <div class="slider">
         Für Temperaturen bis min.<input formControlName="waermeformbestaendigkeit" id="waermeformbestaendigkeit" type="range" min="0" max="1100" value="0" oninput="rangeValue.innerText = this.value">
         <label id="rangeValue">0</label>
-        
+
       </div>
       <div class="slider">
         Härte (Shore D) min.<input formControlName="haerte" id="haerte" type="range" min="30" max="100" value="30" oninput="rangeValue2.innerText = this.value">
