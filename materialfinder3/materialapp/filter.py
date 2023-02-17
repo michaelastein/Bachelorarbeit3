@@ -6,7 +6,7 @@ class MaterialFilter(django_filters.FilterSet):
     haerte = django_filters.NumberFilter(field_name='haerte', lookup_expr='gte')
     wandstaerke = django_filters.NumberFilter(field_name='wandstaerke', lookup_expr='lte')
     dichte = django_filters.NumberFilter(field_name='dichte', lookup_expr='lte')
-
+    name = django_filters.CharFilter(lookup_expr='icontains')
 
     
     class Meta:

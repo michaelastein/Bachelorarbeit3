@@ -31,7 +31,8 @@ export class MaterialienWizardComponent implements OnInit {
   slider1: boolean = true;
 
 
-  dropdownList:any = [];
+  dropdownList: any = [];
+  selectedItems: any = [];
   dropdownSettings: IDropdownSettings = {};
 
 
@@ -52,6 +53,14 @@ export class MaterialienWizardComponent implements OnInit {
       idField: 'item_id',
       textField: 'item_text',
     };
+    this.selectedItems = [
+      { item_id: 1, item_text: 'FFF/FDM' },
+      { item_id: 2, item_text: 'SLS' },
+      { item_id: 3, item_text: 'SLA' },
+      { item_id: 4, item_text: 'SLM' },
+      { item_id: 5, item_text: 'Polyjet' },
+      { item_id: 6, item_text: 'andere' }
+    ];
 
 
     this.form = this.formBuilder.group({
@@ -79,6 +88,8 @@ export class MaterialienWizardComponent implements OnInit {
       sterilisierbar: [false],
       entflammbar: [false],
       temp_kalt: [false],
+
+      myItems: [this.selectedItems],
     });
     this.newdata = "";
     this.MaterialienService.getAll()
