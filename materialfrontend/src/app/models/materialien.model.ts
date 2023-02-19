@@ -3,6 +3,7 @@
 export class Materialien {
   id?: any;
   name?: string;
+  materialart?: string;
 
   handelsname?: string;
   verfahren?: string;
@@ -10,11 +11,13 @@ export class Materialien {
   fachbezeichnung?: string;
   waermeformbestaendigkeit?:number;
   glasuebergangstemp?: number;
+  schmelzpunkt?: number;
   temp_warm?: number;
   temp_kalt?: number;
   temperaturbestaendig?: boolean;
   festigkeit?: boolean;
   haerte?: number;
+  haerte_hv?: number;
   bruchfest?: boolean;
   dichte?: number;
   wandstaerke?: number;
@@ -24,6 +27,7 @@ export class Materialien {
   transparent?: boolean;
   uvbestaendig?: boolean;
   witterungsbestaendig?: boolean;
+  korrisionssbestaendig?: boolean;
   langlebig?: boolean;
   umweltvertraeglich?: boolean;
   biokompatibel?: boolean;

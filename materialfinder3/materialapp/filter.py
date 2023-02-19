@@ -37,6 +37,7 @@ class MaterialFilter(django_filters.FilterSet):
       (   17,  'Spritzguss' ),
       (   18,  'Zahnmedizin' ),
       (   19,  'Schmuck' ),
+      (   20,  'Robotik' ),
     
       
     )

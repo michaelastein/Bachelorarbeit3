@@ -83,7 +83,8 @@ export class MaterialienWizardComponent implements OnInit {
       { item_id: 17, bereiche: 'Spritzguss' },
       { item_id: 18, bereiche: 'Zahnmedizin' },
       { item_id: 19, bereiche: 'Schmuck' },
-      { item_id: 20, bereiche: 'Fahrrad' }
+      { item_id: 20, bereiche: 'Fahrrad' },
+      { item_id: 21, bereiche: 'Robotik' }
       
     ];
     this.dropdownSettingsBereiche = {
@@ -165,7 +166,7 @@ export class MaterialienWizardComponent implements OnInit {
     this.newdata = this.newdata.replaceAll("]", "");
 
 
-    for (var i = 1; i <= 20; i++){
+    for (var i = 1; i <= 21; i++){
       var str = "&item_id="+ i + "&" ;
       this.newdata = this.newdata.replaceAll(str, "&");
     }

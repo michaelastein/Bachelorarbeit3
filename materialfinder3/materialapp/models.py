@@ -10,14 +10,17 @@ class Tutorial(models.Model):
 
 class Materialien(models.Model):
      name = models.CharField(max_length = 200, default='')
+     materialart =  models.CharField(max_length = 50, default='')
      fachbezeichnung = models.CharField(max_length=100)
      handelsname = models.CharField(max_length=50)
      verfahren = models.TextField()
      firmeneigen = models.BooleanField(default=0)
      waermeformbestaendigkeit = models.IntegerField()
      haerte = models.IntegerField()
+     haerte_hv = models.IntegerField()
 
      glasuebergangstemp = models.IntegerField()
+     schmelzpunkt = models.IntegerField()
      temp_warm = models.IntegerField()
      temp_kalt = models.IntegerField()
      temperaturbestaendig = models.BooleanField(default= 0)
@@ -30,6 +33,8 @@ class Materialien(models.Model):
      transparent = models.BooleanField(default = 0)
      uvbestaendig = models.BooleanField(default = 0)
      witterungsbestaendig = models.BooleanField(default = 0)
+     korrisionsbestaendig = models.BooleanField(default = 0)
+
      langlebig = models.BooleanField(default = 0)
      umweltvertraeglich = models.BooleanField(default = 0)
      biokompatibel = models.BooleanField(default = 0)
