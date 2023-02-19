@@ -28,19 +28,24 @@ export class MaterialienWizardComponent implements OnInit {
   Ausgabe: any;
   ausgabereturn: any;
   materialien?: Materialien[];
-  slider1: boolean = true;
 
 
-  dropdownList: any = [];
-  selectedItems: any = [];
-  dropdownSettings: IDropdownSettings = {};
+  dropdownListVerfahren: any = [];
+  selectedItemsVerfahren: any = [];
+  dropdownSettingsVerfahren: IDropdownSettings = {};
+
+  dropdownListBereiche: any = [];
+  selectedItemsBereiche: any = [];
+  dropdownSettingsBereiche: IDropdownSettings = {};
+
+
 
 
   constructor(private formBuilder: FormBuilder, private MaterialienService: MaterialienService) { }
 
   ngOnInit() {
     
-    this.dropdownList = [
+    this.dropdownListVerfahren = [
       { item_id: 1, verfahren: 'FFF/FDM' },
       { item_id: 2, verfahren: 'SLS' },
       { item_id: 3, verfahren: 'SLA' },
@@ -49,23 +54,46 @@ export class MaterialienWizardComponent implements OnInit {
       { item_id: 6, verfahren: 'DMLS' },
       { item_id: 8, verfahren: 'DLS' },
       { item_id: 9, verfahren: 'DLP' }
-
-
     ];
-    this.dropdownSettings = {
+    this.dropdownSettingsVerfahren = {
       idField: 'item_id',
       textField: 'verfahren',
     };
-    this.selectedItems = [
-      { item_id: 1, verfahren: 'FFF/FDM' },
-      { item_id: 2, verfahren: 'SLS' },
-      { item_id: 3, verfahren: 'SLA' },
-      { item_id: 4, verfahren: 'SLM' },
-      { item_id: 5, verfahren: 'Polyjet' },
-      { item_id: 6, verfahren: 'DMLS' },
-      { item_id: 8, verfahren: 'DLS' },
-      { item_id: 9, verfahren: 'DLP' }
+    this.selectedItemsVerfahren = [
+      
     ];
+
+
+    this.dropdownListBereiche = [
+      { item_id: 1, bereiche: 'Automobilbau' },
+      { item_id: 2, bereiche: 'Luft/Raumfahrt' },
+      { item_id: 3, bereiche: 'Medizin' },
+      { item_id: 4, bereiche: 'Prototypen' },
+      { item_id: 5, bereiche: 'Maschinenbau' },
+      { item_id: 6, bereiche: 'Elektroindustrie' },
+      { item_id: 8, bereiche: 'Sport' },
+      { item_id: 9, bereiche: 'Werkzeug' },
+      { item_id: 10, bereiche: 'Modelle' },
+      { item_id: 11, bereiche: 'Endprodukte' },
+      { item_id: 12, bereiche: 'Kleinserien' },
+      { item_id: 13, bereiche: 'Halterungen' },
+      { item_id: 14, bereiche: 'Gehäuse' },
+      { item_id: 15, bereiche: 'Tiefziehwerkzeuge' },
+      { item_id: 16, bereiche: 'Fertigung' },
+      { item_id: 17, bereiche: 'Spritzguss' },
+      { item_id: 18, bereiche: 'Zahnmedizin' },
+      { item_id: 19, bereiche: 'Schmuck' },
+      { item_id: 20, bereiche: 'Fahrrad' }
+      
+    ];
+    this.dropdownSettingsBereiche = {
+      idField: 'item_id',
+      textField: 'bereiche',
+    };
+    this.selectedItemsBereiche = [
+     
+    ];
+
 
 
     this.form = this.formBuilder.group({
@@ -95,7 +123,8 @@ export class MaterialienWizardComponent implements OnInit {
       entflammbar: [false],
       temp_kalt: [false],
 
-      myItems: [this.selectedItems],
+      verfahrenSelect: [this.selectedItemsVerfahren],
+      bereicheSelect: [this.selectedItemsBereiche],
 
 
     });
@@ -130,13 +159,22 @@ export class MaterialienWizardComponent implements OnInit {
     this.newdata = this.newdata.replaceAll("\"", "");
     this.newdata = this.newdata.replaceAll(":", "=");
     this.newdata = this.newdata.replaceAll("{", "");
-    this.newdata = this.newdata.replaceAll("myItems=[", "");
+    this.newdata = this.newdata.replaceAll("verfahrenSelect=[", "");
+    this.newdata = this.newdata.replaceAll("bereicheSelect=[", "");
+
     this.newdata = this.newdata.replaceAll("]", "");
 
-    for (var i = 1; i <= 9; i++){
-      var str = "&item_id="+ i ;
-      this.newdata = this.newdata.replace(str, "");
+    for (var i = 1; i <= 20; i++){
+      var str = "&item_id="+ i + "&" ;
+      this.newdata = this.newdata.replaceAll(str, "&");
     }
+    
+    this.newdata = this.newdata.replaceAll("&&", "&");
+
+    
+   
+
+
     this.newdata = this.newdata.replace("verfahren=FFF/FDM", "verfahren=FFF&verfahren=FDM");
 
 
@@ -179,13 +217,11 @@ export class MaterialienWizardComponent implements OnInit {
   onReset() {
     this.submitted = false;
     this.form.reset();
-
+    //  <button class="btn btn-secondary" type="reset" (click)="onReset()">Reset</button>
   }
 
 
 
-  toggleBeliebig1() {
-    this.slider1 = !this.slider1;
-  }
+ 
 
 }

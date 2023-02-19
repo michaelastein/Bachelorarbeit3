@@ -229,7 +229,7 @@
         </ng-template>
 
         <p></p>
-        <ng-template [ngIf]="currentMaterial.bereiche !=''">
+        <ng-template [ngIf]="currentMaterial.bereiche !='leer'">
           <div>
             <label><strong>Einsatzbereiche:</strong></label>
             {{ currentMaterial.bereiche }}

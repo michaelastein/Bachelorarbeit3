@@ -13,9 +13,9 @@
 
       <h6><strong>Verfahren</strong></h6>
       <div style="width:60%">
-        <ng-multiselect-dropdown [settings]="dropdownSettings"
-                                 [data]="dropdownList"
-                                 formControlName="myItems">
+        <ng-multiselect-dropdown [settings]="dropdownSettingsVerfahren"
+                                 [data]="dropdownListVerfahren"
+                                 formControlName="verfahrenSelect">
         </ng-multiselect-dropdown>
       </div>
       <p></p>
@@ -117,9 +117,18 @@
 
 
       </div>
+
+      <h6><strong>Einsatzbereiche</strong></h6>
+      <div style="width:100%">
+        <ng-multiselect-dropdown [settings]="dropdownSettingsBereiche"
+                                 [data]="dropdownListBereiche"
+                                 formControlName="bereicheSelect">
+        </ng-multiselect-dropdown>
+      </div>
+      <p></p>
       <div>
-        <button class="btn btn-primary mr-1">Submit</button>
-        <button class="btn btn-secondary" type="reset" (click)="onReset()">Reset</button>
+        <button class="btn btn-primary mr-1">Suche starten</button>
+       
       </div>
     </form>
 
