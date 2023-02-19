@@ -10,6 +10,7 @@ export class Materialien {
   fachbezeichnung?: string;
   waermeformbestaendigkeit?:number;
   glasuebergangstemp?: number;
+  temp_warm?: number;
   temp_kalt?: number;
   temperaturbestaendig?: boolean;
   festigkeit?: boolean;

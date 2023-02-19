@@ -18,11 +18,11 @@ class MaterialFilter(django_filters.FilterSet):
 )
 
     bereiche_CHOICES = (
-      (   0,  'Fahrrad' ),
-      (   1,'Automobilbau' ),
-      (   2, 'Luft/Raumfahrt' ),
-      (   3, 'Medizin' ),
-      (   4 ,'Prototypen' ),
+      (0,'Fahrrad'),
+      (1,'Automobilbau'),
+      (2,'Luft/Raumfahrt'),
+      (   3,'Medizin'),
+      (   4,'Prototypen'),
       (   5,'Maschinenbau' ),
       (   6, 'Elektroindustrie' ),
       (   8 ,'Sport' ),
@@ -41,7 +41,7 @@ class MaterialFilter(django_filters.FilterSet):
       
     )
    
-    waermeformbestaendigkeit = django_filters.NumberFilter(field_name='waermeformbestaendigkeit', lookup_expr='gte')
+    temp_warm = django_filters.NumberFilter(field_name='temp_warm', lookup_expr='gte')
     haerte = django_filters.NumberFilter(field_name='haerte', lookup_expr='gte')
     wandstaerke = django_filters.NumberFilter(field_name='wandstaerke', lookup_expr='lte')
     dichte = django_filters.NumberFilter(field_name='dichte', lookup_expr='lte')

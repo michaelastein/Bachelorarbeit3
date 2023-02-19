@@ -5,14 +5,14 @@
     <h4>Liste der Materialien</h4>
     <ul class="list-group">
       <li class="list-group-item"
-          *ngFor="let material of materialien; let i = index"
+          *ngFor="let material of materialien; let i = index "
           [class.active]="i == currentIndex"
           (click)="setActiveMaterial(material, i)">
         {{ material.name }} {{ material.handelsname}}
       </li>
     </ul>
 
-    
+
   </div>
   {{Ausgabe}}
   <div class="col-md-6">

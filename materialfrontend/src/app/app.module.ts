@@ -15,7 +15,7 @@ import { MaterialienListComponent } from './components/materialien-list/material
 import { UebersichtComponent } from './components/uebersicht/uebersicht.component';
 //import { DynamicTableComponent } from './dynamic-table/dynamic-table.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown'
-
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -37,7 +37,8 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown'
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    NgMultiSelectDropDownModule.forRoot()
+    NgMultiSelectDropDownModule.forRoot(),
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

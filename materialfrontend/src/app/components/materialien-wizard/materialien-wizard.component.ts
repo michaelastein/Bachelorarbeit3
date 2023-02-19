@@ -98,7 +98,7 @@ export class MaterialienWizardComponent implements OnInit {
 
     this.form = this.formBuilder.group({
 
-      waermeformbestaendigkeit: [0],
+      temp_warm: [0],
       haerte: [30],
       wandstaerke: [2],
       dichte:[10],
@@ -164,6 +164,7 @@ export class MaterialienWizardComponent implements OnInit {
 
     this.newdata = this.newdata.replaceAll("]", "");
 
+
     for (var i = 1; i <= 20; i++){
       var str = "&item_id="+ i + "&" ;
       this.newdata = this.newdata.replaceAll(str, "&");
@@ -171,7 +172,7 @@ export class MaterialienWizardComponent implements OnInit {
     
     this.newdata = this.newdata.replaceAll("&&", "&");
 
-    
+
    
 
 
@@ -189,7 +190,7 @@ export class MaterialienWizardComponent implements OnInit {
       
     }
     this.newdata = split.join("")
- 
+    this.newdata = this.newdata.replace("&", "");
 
 
 

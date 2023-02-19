@@ -17,7 +17,6 @@ export class MaterialienListComponent implements OnChanges {
   Ausgabe: any;
   @Input() materialien?: Materialien[]
 
-
   constructor(private materialienService: MaterialienService) { }
 
   ngOnInit(): void {

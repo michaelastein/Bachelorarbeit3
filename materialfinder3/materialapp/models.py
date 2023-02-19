@@ -18,6 +18,7 @@ class Materialien(models.Model):
      haerte = models.IntegerField()
 
      glasuebergangstemp = models.IntegerField()
+     temp_warm = models.IntegerField()
      temp_kalt = models.IntegerField()
      temperaturbestaendig = models.BooleanField(default= 0)
      festigkeit = models.BooleanField(default= 0)
