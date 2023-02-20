@@ -48,6 +48,13 @@
           {{ currentMaterial.glasuebergangstemp}}°C
         </div>
       </ng-template>
+      <ng-template [ngIf]="currentMaterial.schmelzpunkt != 0">
+        <div>
+          <label><strong>Schmelzpunkt:</strong></label>
+          {{ currentMaterial.schmelzpunkt}}°C
+        </div>
+      </ng-template>
+
 
       <ng-template [ngIf]="currentMaterial.temperaturbestaendig">
         <div>
