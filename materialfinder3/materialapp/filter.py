@@ -17,27 +17,29 @@ class MaterialFilter(django_filters.FilterSet):
 
 )
 
+    material_CHOICES = (
+    (0, 'Kunststoff'),
+    (1, 'Metall'),
+    (2, 'Resin'),
+    (3, 'Verbund'),
+    (4, 'Sonstige')
+)
+
     bereiche_CHOICES = (
-      (0,'Fahrrad'),
       (1,'Automobilbau'),
       (2,'Luft/Raumfahrt'),
       (   3,'Medizin'),
       (   4,'Prototypen'),
       (   5,'Maschinenbau' ),
       (   6, 'Elektroindustrie' ),
-      (   8 ,'Sport' ),
       (   9 ,'Werkzeug' ),
       (   10,  'Modelle' ),
       (   11,  'Endprodukte' ),
       (   12,  'Kleinserien' ),
       (   13,  'Halterungen' ),
       (   14,  'Gehäuse' ),
-      (   15,  'Tiefziehwerkzeuge' ),
-      (   16,  'Fertigung' ),
-      (   17,  'Spritzguss' ),
-      (   18,  'Zahnmedizin' ),
-      (   19,  'Schmuck' ),
-      (   20,  'Robotik' ),
+     
+      (   15,  'Robotik' ),
     
       
     )
@@ -49,6 +51,7 @@ class MaterialFilter(django_filters.FilterSet):
     name = django_filters.CharFilter(lookup_expr='icontains')
     verfahren = django_filters.AllValuesMultipleFilter(lookup_expr='icontains', choices = verfahren_CHOICES)
     bereiche = django_filters.AllValuesMultipleFilter(lookup_expr='icontains', choices = bereiche_CHOICES)
+    materialart = django_filters.AllValuesMultipleFilter(lookup_expr='icontains', choices = material_CHOICES)
 
      
     class Meta:

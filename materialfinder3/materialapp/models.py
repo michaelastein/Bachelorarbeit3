@@ -10,7 +10,7 @@ class Tutorial(models.Model):
 
 class Materialien(models.Model):
      name = models.CharField(max_length = 200, default='')
-     materialart =  models.CharField(max_length = 50, default='')
+     materialart =  models.CharField(max_length = 200, default='')
      fachbezeichnung = models.CharField(max_length=100)
      handelsname = models.CharField(max_length=50)
      verfahren = models.TextField()
@@ -33,7 +33,7 @@ class Materialien(models.Model):
      transparent = models.BooleanField(default = 0)
      uvbestaendig = models.BooleanField(default = 0)
      witterungsbestaendig = models.BooleanField(default = 0)
-     korrisionsbestaendig = models.BooleanField(default = 0)
+     korrosionsbestaendig = models.BooleanField(default = 0)
 
      langlebig = models.BooleanField(default = 0)
      umweltvertraeglich = models.BooleanField(default = 0)

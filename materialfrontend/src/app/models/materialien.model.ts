@@ -27,7 +27,7 @@ export class Materialien {
   transparent?: boolean;
   uvbestaendig?: boolean;
   witterungsbestaendig?: boolean;
-  korrisionssbestaendig?: boolean;
+  korrosionsbestaendig?: boolean;
   langlebig?: boolean;
   umweltvertraeglich?: boolean;
   biokompatibel?: boolean;

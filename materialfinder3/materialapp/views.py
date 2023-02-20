@@ -135,9 +135,8 @@ def materialien_search(request):
         list = []
         count = 0
         while (count < len(ser)):
-            
-            list.append(ser[count]['fields'])
-            count = count +1
+                list.append(ser[count]['fields'])
+                count = count +1
                 
         
         #ser = ser['fields']

@@ -38,7 +38,9 @@ export class MaterialienWizardComponent implements OnInit {
   selectedItemsBereiche: any = [];
   dropdownSettingsBereiche: IDropdownSettings = {};
 
-
+  dropdownListMaterial: any = [];
+  selectedItemsMaterial: any = [];
+  dropdownSettingsMaterial: IDropdownSettings = {};
 
 
   constructor(private formBuilder: FormBuilder, private MaterialienService: MaterialienService) { }
@@ -59,32 +61,41 @@ export class MaterialienWizardComponent implements OnInit {
       idField: 'item_id',
       textField: 'verfahren',
     };
-    this.selectedItemsVerfahren = [
+    this.selectedItemsVerfahren = [];
+
+
+    this.dropdownListMaterial = [
+      { item_id: 1, materialart: 'Kunststoff' },
+      { item_id: 2, materialart: 'Metall' },
+      { item_id: 3, materialart: 'Resin' },
+      { item_id: 4, materialart: 'Verbundstoff' },
+      { item_id: 5, materialart: 'Sonstige' },
       
     ];
+    this.dropdownSettingsMaterial = {
+      idField: 'item_id',
+      textField: 'materialart',
+    };
+    this.selectedItemsMaterial = [];
 
 
     this.dropdownListBereiche = [
       { item_id: 1, bereiche: 'Automobilbau' },
-      { item_id: 2, bereiche: 'Luft/Raumfahrt' },
-      { item_id: 3, bereiche: 'Medizin' },
-      { item_id: 4, bereiche: 'Prototypen' },
-      { item_id: 5, bereiche: 'Maschinenbau' },
-      { item_id: 6, bereiche: 'Elektroindustrie' },
-      { item_id: 8, bereiche: 'Sport' },
-      { item_id: 9, bereiche: 'Werkzeug' },
+      { item_id: 2, bereiche: 'Elektroindustrie' },
+      { item_id: 4, bereiche: 'Gehäuse' },
+      { item_id: 5, bereiche: 'Halterungen' },
+      { item_id: 6, bereiche: 'Kleinserien' },
+      { item_id: 7, bereiche: 'Luft/Raumfahrt' },
+      { item_id: 8, bereiche: 'Maschinenbau' },
+      { item_id: 9, bereiche: 'Medizin' },
       { item_id: 10, bereiche: 'Modelle' },
-      { item_id: 11, bereiche: 'Endprodukte' },
-      { item_id: 12, bereiche: 'Kleinserien' },
-      { item_id: 13, bereiche: 'Halterungen' },
-      { item_id: 14, bereiche: 'Gehäuse' },
-      { item_id: 15, bereiche: 'Tiefziehwerkzeuge' },
-      { item_id: 16, bereiche: 'Fertigung' },
-      { item_id: 17, bereiche: 'Spritzguss' },
-      { item_id: 18, bereiche: 'Zahnmedizin' },
-      { item_id: 19, bereiche: 'Schmuck' },
-      { item_id: 20, bereiche: 'Fahrrad' },
-      { item_id: 21, bereiche: 'Robotik' }
+      { item_id: 11, bereiche: 'Prototypen' },
+      { item_id: 12, bereiche: 'Robotik' },
+      { item_id: 13, bereiche: 'Werkzeug' },
+
+
+      
+     
       
     ];
     this.dropdownSettingsBereiche = {
@@ -123,9 +134,11 @@ export class MaterialienWizardComponent implements OnInit {
       sterilisierbar: [false],
       entflammbar: [false],
       temp_kalt: [false],
+      korrosionsbestaendig: [false],
 
       verfahrenSelect: [this.selectedItemsVerfahren],
       bereicheSelect: [this.selectedItemsBereiche],
+      materialSelect: [this.selectedItemsMaterial],
 
 
     });
@@ -162,20 +175,18 @@ export class MaterialienWizardComponent implements OnInit {
     this.newdata = this.newdata.replaceAll("{", "");
     this.newdata = this.newdata.replaceAll("verfahrenSelect=[", "");
     this.newdata = this.newdata.replaceAll("bereicheSelect=[", "");
+    this.newdata = this.newdata.replaceAll("materialSelect=[", "");
 
     this.newdata = this.newdata.replaceAll("]", "");
+    this.newdata = this.newdata.replaceAll("Verbundstoff", "Verbund");
 
 
-    for (var i = 1; i <= 21; i++){
+    for (var i = 1; i <= 20; i++){
       var str = "&item_id="+ i + "&" ;
       this.newdata = this.newdata.replaceAll(str, "&");
     }
     
     this.newdata = this.newdata.replaceAll("&&", "&");
-
-
-   
-
 
     this.newdata = this.newdata.replace("verfahren=FFF/FDM", "verfahren=FFF&verfahren=FDM");
 
@@ -192,6 +203,7 @@ export class MaterialienWizardComponent implements OnInit {
     }
     this.newdata = split.join("")
     this.newdata = this.newdata.replace("&", "");
+    this.newdata = this.newdata.replaceAll("&&", "&");
 
 
 
