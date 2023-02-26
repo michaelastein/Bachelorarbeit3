@@ -61,7 +61,14 @@ export class MaterialienWizardComponent implements OnInit {
       idField: 'item_id',
       textField: 'verfahren',
     };
-    this.selectedItemsVerfahren = [];
+    this.selectedItemsVerfahren = [{ item_id: 1, verfahren: 'FFF/FDM' },
+      { item_id: 2, verfahren: 'SLS' },
+      { item_id: 3, verfahren: 'SLA' },
+      { item_id: 4, verfahren: 'SLM' },
+      { item_id: 5, verfahren: 'Polyjet' },
+      { item_id: 6, verfahren: 'DMLS' },
+      { item_id: 8, verfahren: 'DLS' },
+      { item_id: 9, verfahren: 'DLP' }];
 
 
     this.dropdownListMaterial = [
@@ -76,7 +83,12 @@ export class MaterialienWizardComponent implements OnInit {
       idField: 'item_id',
       textField: 'materialart',
     };
-    this.selectedItemsMaterial = [];
+    this.selectedItemsMaterial = [
+      { item_id: 1, materialart: 'Kunststoff' },
+      { item_id: 2, materialart: 'Metall' },
+      { item_id: 3, materialart: 'Resin' },
+      { item_id: 4, materialart: 'Verbundstoff' },
+      { item_id: 5, materialart: 'Sonstige' },];
 
 
     this.dropdownListBereiche = [
