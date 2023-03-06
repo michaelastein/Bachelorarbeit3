@@ -22,6 +22,8 @@ export class MaterialienListComponent implements OnChanges {
   tableSize: number = 15;
   tableSizes: any = [5, 10, 15, 20, 50, 100];
 
+
+
   constructor(private materialienService: MaterialienService) { }
 
   ngOnInit(): void {
@@ -57,12 +59,15 @@ export class MaterialienListComponent implements OnChanges {
 
   onTableDataChange(event: any) {
     this.page = event;
-    this.retrieveMaterialien();
+    //this.retrieveMaterialien();
+    this.materialien = this.materialien;
+
   }
   onTableSizeChange(event: any): void {
     this.tableSize = event.target.value;
     this.page = 1;
-    this.retrieveMaterialien();
+    this.materialien = this.materialien;
+    //this.retrieveMaterialien();
   }
 
   refreshList(): void {

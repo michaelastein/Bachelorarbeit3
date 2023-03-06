@@ -2,15 +2,24 @@
 
 
 
+<ng-template [ngIf]="materialien!.length == 0">
+  <p></p>
+  <h3><b>Kein passendes Material zu diesen Filtereinstellungen</b></h3>
+</ng-template>
 <div class="list row">
 
+
   <div class="col-md-6">
-    <div class="d-flex justify-content-center">
-      <pagination-controls previousLabel="Vorherige"
-                           nextLabel="Nächste"
-                           (pageChange)="onTableDataChange($event)">
-      </pagination-controls>
-    </div>
+    <ng-template [ngIf]="materialien!.length != 0">
+      <div class="d-flex justify-content-center">
+        <pagination-controls previousLabel="Vorherige"
+                             nextLabel="Nächste"
+                             (pageChange)="onTableDataChange($event)">
+        </pagination-controls>
+      </div>
+    </ng-template>
+
+
     <ul class="list-group">
       <li class="list-group-item"
           *ngFor="let material of materialien!
@@ -26,12 +35,17 @@
         {{ material.name }} {{ material.handelsname}}
       </li>
     </ul>
-    <div class="d-flex justify-content-center">
-      <pagination-controls previousLabel="Vorherige"
-                           nextLabel="Nächste"
-                           (pageChange)="onTableDataChange($event)">
-      </pagination-controls>
-    </div>
+
+    <ng-template [ngIf]="materialien!.length != 0">
+
+      <div class="d-flex justify-content-center">
+        <pagination-controls previousLabel="Vorherige"
+                             nextLabel="Nächste"
+                             (pageChange)="onTableDataChange($event)">
+        </pagination-controls>
+      </div>
+    </ng-template>
+
 
 
   </div>
@@ -307,26 +321,37 @@
 
     </div>
 
-    <div *ngIf="!currentMaterial">
-      <br />
-      <p>Bitte ein Material anklicken...</p>
-    </div>
+    <ng-template [ngIf]="materialien!.length != 0">
+      <div *ngIf="!currentMaterial">
+        <br />
+        <p>Bitte ein Material anklicken...</p>
+      </div>
+    </ng-template>
+
+
+
+
   </div>
 
+
   <p></p>
-  <div class="col-md-8">
-    <div class="input-group mb-3">
-      <input type="text"
-             class="form-control"
-             placeholder="Search by name"
-             [(ngModel)]="name" />
-      <div class="input-group-append">
-        <button class="btn btn-outline-secondary"
-                type="button"
-                (click)="searchName()">
-          Search
-        </button>
+
+  <ng-template [ngIf]="materialien!.length != 0">
+
+    <div class="col-md-8">
+      <div class="input-group mb-3">
+        <input type="text"
+               class="form-control"
+               placeholder="Search by name"
+               [(ngModel)]="name" />
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary"
+                  type="button"
+                  (click)="searchName()">
+            Search
+          </button>
+        </div>
       </div>
     </div>
-  </div>
+  </ng-template>
 </div>
