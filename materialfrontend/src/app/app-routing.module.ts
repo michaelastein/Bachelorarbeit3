@@ -9,10 +9,8 @@ import { UebersichtComponent } from './components/uebersicht/uebersicht.componen
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'tutorials', pathMatch: 'full' },
-  { path: 'tutorials', component: TutorialsListComponent },
-  { path: 'tutorials/:id', component: TutorialDetailsComponent },
-  { path: 'add', component: AddTutorialComponent },
+  { path: '', redirectTo: 'materialien', pathMatch: 'full' },
+
   { path: 'materialien', component: MaterialienWizardComponent },
   { path: 'uebersicht', component: UebersichtComponent },
 ];

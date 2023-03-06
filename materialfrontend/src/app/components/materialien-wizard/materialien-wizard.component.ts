@@ -206,29 +206,20 @@ export class MaterialienWizardComponent implements OnInit {
       
     }
 
-    if (!this.metall) {
-    
-      split[split.findIndex(v => v.includes("haerte_hv"))] = ""
-      
-    }
 
+    if (!this.metall) {
+      split[split.findIndex(v => v.includes("haerte_hv"))] = ""
+    }
 
     if (this.nurMetall) {
-
-     
-      split[split.findIndex(v => v.includes("haerte"))] = ""
-      
+      split[split.findIndex(v => v.includes("haerte"))] = ""  
     }
-
 
     this.newdata = split.join("")
     this.newdata = this.newdata.replace("&", "");
     this.newdata = this.newdata.replaceAll("&&", "&");
 
-   
 
-    
-    //eigentlich find mit this.newdata
     this.MaterialienService.find(this.newdata)
       .subscribe(
         data => {
