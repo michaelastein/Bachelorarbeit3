@@ -13,6 +13,7 @@ import { UebersichtComponent } from './components/uebersicht/uebersicht.componen
 //import { DynamicTableComponent } from './dynamic-table/dynamic-table.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown'
 import { NgxPaginationModule } from 'ngx-pagination';
+import { KontaktComponent } from './components/kontakt/kontakt.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     MaterialienWizardComponent,
     MaterialienListComponent,
     UebersichtComponent,
+    KontaktComponent,
     //DynamicTableComponent,
     
 
