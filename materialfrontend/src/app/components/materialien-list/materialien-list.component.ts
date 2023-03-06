@@ -37,10 +37,15 @@ export class MaterialienListComponent implements OnChanges {
         console.log('Previous:', changes[property].previousValue);
         console.log('Current:', changes[property].currentValue);
         console.log('firstChange:', changes[property].firstChange);
+        
       }
     }
     this.currentMaterial = undefined;
     this.currentIndex = -1;
+    this.page = 1;
+    this.count = 0;
+    this.materialien = this.materialien;
+
   }
 
 
@@ -109,5 +114,11 @@ export class MaterialienListComponent implements OnChanges {
   setMaterial(materialien: Materialien[]): void {
     this.materialien = materialien;
   }
+
+  resetPageNumber() {
+    this.page = 1;
+
+  }
+
 
 }

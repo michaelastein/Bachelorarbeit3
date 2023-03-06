@@ -18,6 +18,7 @@ export class MaterialienService {
   getAll(): Observable<Materialien[]> {
     console.log("getAll" + baseUrl)
     return this.http.get<Materialien[]>(baseUrl);
+
   }
 
   get(id: any): Observable<Materialien> {
