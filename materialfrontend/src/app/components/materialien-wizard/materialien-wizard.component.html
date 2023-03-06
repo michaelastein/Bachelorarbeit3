@@ -26,10 +26,10 @@
                                  [data]="dropdownListMaterial"
                                  [(ngModel)]="selectedItemsMaterial"
                                  formControlName="materialSelect"
-                                  (onSelect)="onItemSelect($event)"
-    (onSelectAll)="onSelectAll($event)"
-    (onDeSelect)="onItemDeSelect($event)"
-    (onDeSelectAll)="onUnSelectAll()">
+                                 (onSelect)="onItemSelect($event)"
+                                 (onSelectAll)="onSelectAll($event)"
+                                 (onDeSelect)="onItemDeSelect($event)"
+                                 (onDeSelectAll)="onUnSelectAll()">
 
         </ng-multiselect-dropdown>
       </div>
@@ -71,147 +71,149 @@
             </div> &nbsp; Shore D
           </div>
         </div>
-        </ng-template>
+      </ng-template>
 
-        <ng-template [ngIf]="metall">
-          <div class="div1">
-            Härte min. (Metall)
-          </div>
-          <div class="div2">
-            <div class="slider">
-              <input formControlName="haerte" id="haerte_hv" type="range" min="100" max="650" value="100" oninput="rangeValue5.innerText = this.value">
-              &nbsp; <div id="rangeValue5" style="  min-width:10px; display: inline-block">
-                100
-              </div> &nbsp; HV
-            </div>
-
-          </div>
-        </ng-template>
-
-
+      <ng-template [ngIf]="metall">
         <div class="div1">
-          Min. benötigte Wandstärke
+          Härte min. (Metall)
         </div>
         <div class="div2">
           <div class="slider">
-            <input formControlName="wandstaerke" id="wandstaerke" type="range" min="0" max="2" value="2" step="0.1" oninput="rangeValue3.innerText = this.value">
-            &nbsp;<div id="rangeValue3" style="  min-width:10px; display: inline-block">
-              2
-            </div>  mm
+            <input formControlName="haerte" id="haerte_hv" type="range" min="100" max="650" value="100" oninput="rangeValue5.innerText = this.value">
+            &nbsp; <div id="rangeValue5" style="  min-width:10px; display: inline-block">
+              100
+            </div> &nbsp; HV
           </div>
-        </div>
-
-        <div class="div1">
-          Max. Dichte
-        </div>
-        <div class="div2">
-          <div class="slider">
-            <input formControlName="dichte" id="dichte" type="range" min="0" max="10" value="10" step="0.1" oninput="rangeValue4.innerText = this.value">
-            &nbsp;<div id="rangeValue4" style="  min-width:10px; display: inline-block">
-              10
-            </div>   g/mm<sup>3</sup>
-          </div>
-        </div>
-
-        <p></p>
-
-        <div class="form-group form-check">
-
-
-
-          <input type="checkbox" formControlName='festigkeit' id='festigkeit' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
-          <label for="festigkeit" class="form-check-label">Hohe Festigkeit</label>
-
-          <input type="checkbox" formControlName='bruchfest' id='bruchfest' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
-          <label for="bruchfest" class="form-check-label">Bruchfest</label>
-
-          <input type="checkbox" formControlName='elastisch' id='elastisch' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
-          <label for="elastisch" class="form-check-label">Flexibel</label>
-
-          <input type="checkbox" formControlName='langlebig' id='langlebig' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
-          <label for="langlebig" class="form-check-label">Langlebig</label>
-
-          <input type="checkbox" formControlName='transparent' id='transparent' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
-          <label for="transparent" class="form-check-label">Transparent</label>
-
-          <input type="checkbox" formControlName='temp_kalt' id='temp_kalt' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
-          <label for="temp_kalt" class="form-check-label">Minustemperaturen</label>
-
 
         </div>
-        <h6><strong>Beständig gegen:</strong></h6>
-        <div class="form-group form-check">
+      </ng-template>
 
 
-
-          <input type="checkbox" formControlName='uvbestaendig' id='uvbestaendig' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
-          <label for="uvbestaendig" class="form-check-label">UV-Strahlung</label>
-
-          <input type="checkbox" formControlName='feuchtigkeits_bestaendig' id='feuchtigkeits_bestaendig' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
-          <label for="feuchtigkeits_bestaendig" class="form-check-label">Feuchtigkeit</label>
-
-          <input type="checkbox" formControlName='korrosionsbestaendig' id='korrosionsbestaendig' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
-          <label for="korrosionsbestaendig" class="form-check-label">Korrosion</label>
-
-
-          <input type="checkbox" formControlName='temperaturbestaendig' id='temperaturbestaendig' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
-          <label for="temperaturbestaendig" class="form-check-label">Hohe Temperaturen</label>
-
-
+      <div class="div1">
+        Min. benötigte Wandstärke
+      </div>
+      <div class="div2">
+        <div class="slider">
+          <input formControlName="wandstaerke" id="wandstaerke" type="range" min="0" max="2" value="2" step="0.1" oninput="rangeValue3.innerText = this.value">
+          &nbsp;<div id="rangeValue3" style="  min-width:10px; display: inline-block">
+            2
+          </div>  mm
         </div>
-        <div class="form-group form-check">
-          <input type="checkbox" formControlName='chemisch_bestaendig' id='chemisch_bestaendig' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
-          <label for="chemisch_bestaendig" class="form-check-label">Chemikalien</label>
+      </div>
 
-          <input type="checkbox" formControlName='oele_bestaendig' id='oele_bestaendig' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
-          <label for="oele_bestaendig" class="form-check-label">Öle und Fette</label>
-
-          <input type="checkbox" formControlName='abrieb_bestaendig' id='abrieb_bestaendig' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
-          <label for="abrieb_bestaendig" class="form-check-label">Abrieb</label>
-
-          <input type="checkbox" formControlName='witterungsbestaendig' id='witterungsbestaendig' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
-          <label for="witterungsbestaendig" class="form-check-label">Witterungseinflüsse</label>
-
-
+      <div class="div1">
+        Max. Dichte
+      </div>
+      <div class="div2">
+        <div class="slider">
+          <input formControlName="dichte" id="dichte" type="range" min="0" max="10" value="10" step="0.1" oninput="rangeValue4.innerText = this.value">
+          &nbsp;<div id="rangeValue4" style="  min-width:10px; display: inline-block">
+            10
+          </div>   g/mm<sup>3</sup>
         </div>
-        <h6><strong>Sonstige Eigenschaften:</strong></h6>
-        <div class="form-group form-check">
+      </div>
 
-          <input type="checkbox" formControlName='lebensmittelecht' id='lebensmittelecht' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
-          <label for="lebensmittelecht" class="form-check-label">Lebensmittelecht</label>
+      <p></p>
 
-          <input type="checkbox" formControlName='umweltvertraeglich' id='umweltvertraeglich' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
-          <label for="umweltvertraeglich" class="form-check-label">Umweltverträglich</label>
-
-          <input type="checkbox" formControlName='sterilisierbar' id='sterilisierbar' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
-          <label for="sterilisierbar" class="form-check-label">Sterilisierbar</label>
-
-          <input type="checkbox" formControlName='biokompatibel' id='biokompatibel' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
-          <label for="biokompatibel" class="form-check-label">Biokompatibel</label>
-
-          <input type="checkbox" formControlName='entflammbar' id='entflammbar' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
-          <label for="entflammbar" class="form-check-label">Schwer entflammbar</label>
+      <div class="form-group form-check">
 
 
 
+        <input type="checkbox" formControlName='festigkeit' id='festigkeit' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
+        <label for="festigkeit" class="form-check-label">Hohe Festigkeit</label>
 
-        </div>
+        <input type="checkbox" formControlName='bruchfest' id='bruchfest' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
+        <label for="bruchfest" class="form-check-label">Bruchfest</label>
 
-        <h6><strong>Einsatzbereiche</strong></h6>
-        <div style="width:100%">
-          <ng-multiselect-dropdown [settings]="dropdownSettingsBereiche"
-                                   [data]="dropdownListBereiche"
-                                   formControlName="bereicheSelect">
-          </ng-multiselect-dropdown>
-        </div>
-        <p></p>
-        <div>
-          <button class="btn btn-primary mr-1">Suche starten</button>
+        <input type="checkbox" formControlName='elastisch' id='elastisch' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
+        <label for="elastisch" class="form-check-label">Flexibel</label>
 
-        </div>
+        <input type="checkbox" formControlName='langlebig' id='langlebig' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
+        <label for="langlebig" class="form-check-label">Langlebig</label>
+
+        <input type="checkbox" formControlName='transparent' id='transparent' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
+        <label for="transparent" class="form-check-label">Transparent</label>
+
+        <input type="checkbox" formControlName='temp_kalt' id='temp_kalt' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
+        <label for="temp_kalt" class="form-check-label">Minustemperaturen</label>
+
+
+      </div>
+      <h6><strong>Beständig gegen:</strong></h6>
+      <div class="form-group form-check">
+
+
+
+        <input type="checkbox" formControlName='uvbestaendig' id='uvbestaendig' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
+        <label for="uvbestaendig" class="form-check-label">UV-Strahlung</label>
+
+        <input type="checkbox" formControlName='feuchtigkeits_bestaendig' id='feuchtigkeits_bestaendig' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
+        <label for="feuchtigkeits_bestaendig" class="form-check-label">Feuchtigkeit</label>
+
+        <input type="checkbox" formControlName='korrosionsbestaendig' id='korrosionsbestaendig' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
+        <label for="korrosionsbestaendig" class="form-check-label">Korrosion</label>
+
+
+        <input type="checkbox" formControlName='temperaturbestaendig' id='temperaturbestaendig' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
+        <label for="temperaturbestaendig" class="form-check-label">Hohe Temperaturen</label>
+
+
+      </div>
+      <div class="form-group form-check">
+        <input type="checkbox" formControlName='chemisch_bestaendig' id='chemisch_bestaendig' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
+        <label for="chemisch_bestaendig" class="form-check-label">Chemikalien</label>
+
+        <input type="checkbox" formControlName='oele_bestaendig' id='oele_bestaendig' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
+        <label for="oele_bestaendig" class="form-check-label">Öle und Fette</label>
+
+        <input type="checkbox" formControlName='abrieb_bestaendig' id='abrieb_bestaendig' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
+        <label for="abrieb_bestaendig" class="form-check-label">Abrieb</label>
+
+        <input type="checkbox" formControlName='witterungsbestaendig' id='witterungsbestaendig' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
+        <label for="witterungsbestaendig" class="form-check-label">Witterungseinflüsse</label>
+
+
+      </div>
+      <h6><strong>Sonstige Eigenschaften:</strong></h6>
+      <div class="form-group form-check">
+
+        <input type="checkbox" formControlName='lebensmittelecht' id='lebensmittelecht' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
+        <label for="lebensmittelecht" class="form-check-label">Lebensmittelecht</label>
+
+        <input type="checkbox" formControlName='umweltvertraeglich' id='umweltvertraeglich' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
+        <label for="umweltvertraeglich" class="form-check-label">Umweltverträglich</label>
+
+        <input type="checkbox" formControlName='sterilisierbar' id='sterilisierbar' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
+        <label for="sterilisierbar" class="form-check-label">Sterilisierbar</label>
+
+        <input type="checkbox" formControlName='biokompatibel' id='biokompatibel' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
+        <label for="biokompatibel" class="form-check-label">Biokompatibel</label>
+
+        <input type="checkbox" formControlName='entflammbar' id='entflammbar' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
+        <label for="entflammbar" class="form-check-label">Schwer entflammbar</label>
+
+
+
+
+      </div>
+
+      <h6><strong>Einsatzbereiche</strong></h6>
+      <div style="width:100%">
+        <ng-multiselect-dropdown [settings]="dropdownSettingsBereiche"
+                                 [data]="dropdownListBereiche"
+                                 formControlName="bereicheSelect">
+        </ng-multiselect-dropdown>
+      </div>
+      <p></p>
+      <div>
+        <button class="btn btn-primary mr-1">Suche starten</button>
+
+      </div>
     </form>
 
-
+    <p></p>
+    <p></p>
+    <p></p>
     <app-materialien-list [materialien]=materialien></app-materialien-list>
   </div>
 </div>

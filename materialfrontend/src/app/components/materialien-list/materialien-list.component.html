@@ -1,16 +1,37 @@
 
+
+
+
 <div class="list row">
 
   <div class="col-md-6">
-    <h4>Liste der Materialien</h4>
+    <div class="d-flex justify-content-center">
+      <pagination-controls previousLabel="Vorherige"
+                           nextLabel="Nächste"
+                           (pageChange)="onTableDataChange($event)">
+      </pagination-controls>
+    </div>
     <ul class="list-group">
       <li class="list-group-item"
-          *ngFor="let material of materialien; let i = index "
+          *ngFor="let material of materialien!
+          | paginate
+              : {
+                  itemsPerPage: tableSize,
+                  currentPage: page,
+                  totalItems: count
+                };
+          let i = index "
           [class.active]="i == currentIndex"
           (click)="setActiveMaterial(material, i)">
-          {{ material.name }} {{ material.handelsname}}
+        {{ material.name }} {{ material.handelsname}}
       </li>
     </ul>
+    <div class="d-flex justify-content-center">
+      <pagination-controls previousLabel="Vorherige"
+                           nextLabel="Nächste"
+                           (pageChange)="onTableDataChange($event)">
+      </pagination-controls>
+    </div>
 
 
   </div>

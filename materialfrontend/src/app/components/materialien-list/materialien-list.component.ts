@@ -15,7 +15,12 @@ export class MaterialienListComponent implements OnChanges {
   currentIndex = -1;
   name = '';
   Ausgabe: any;
-  @Input() materialien?: Materialien[]
+  @Input() materialien?: Materialien[];
+
+  page: number = 1;
+  count: number = 0;
+  tableSize: number = 15;
+  tableSizes: any = [5, 10, 15, 20, 50, 100];
 
   constructor(private materialienService: MaterialienService) { }
 
@@ -41,13 +46,23 @@ export class MaterialienListComponent implements OnChanges {
   retrieveMaterialien(): void {
     this.materialienService.getAll()
       .subscribe(
-        data => {
-          this.materialien = data;
-          console.log(data);
+        (response) => {
+          this.materialien = response;
+          console.log(response);
         },
         error => {
           console.log(error);
         });
+  }
+
+  onTableDataChange(event: any) {
+    this.page = event;
+    this.retrieveMaterialien();
+  }
+  onTableSizeChange(event: any): void {
+    this.tableSize = event.target.value;
+    this.page = 1;
+    this.retrieveMaterialien();
   }
 
   refreshList(): void {
