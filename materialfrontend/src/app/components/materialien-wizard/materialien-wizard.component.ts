@@ -42,6 +42,8 @@ export class MaterialienWizardComponent implements OnInit {
   selectedItemsMaterial: any = [];
   dropdownSettingsMaterial: IDropdownSettings = {};
 
+  metall: boolean = false;
+  nurMetall: boolean = false;
 
   constructor(private formBuilder: FormBuilder, private MaterialienService: MaterialienService) { }
 
@@ -61,14 +63,7 @@ export class MaterialienWizardComponent implements OnInit {
       idField: 'item_id',
       textField: 'verfahren',
     };
-    this.selectedItemsVerfahren = [{ item_id: 1, verfahren: 'FFF/FDM' },
-      { item_id: 2, verfahren: 'SLS' },
-      { item_id: 3, verfahren: 'SLA' },
-      { item_id: 4, verfahren: 'SLM' },
-      { item_id: 5, verfahren: 'Polyjet' },
-      { item_id: 6, verfahren: 'DMLS' },
-      { item_id: 8, verfahren: 'DLS' },
-      { item_id: 9, verfahren: 'DLP' }];
+    this.selectedItemsVerfahren = [];
 
 
     this.dropdownListMaterial = [
@@ -84,11 +79,7 @@ export class MaterialienWizardComponent implements OnInit {
       textField: 'materialart',
     };
     this.selectedItemsMaterial = [
-      { item_id: 1, materialart: 'Kunststoff' },
-      { item_id: 2, materialart: 'Metall' },
-      { item_id: 3, materialart: 'Resin' },
-      { item_id: 4, materialart: 'Verbundstoff' },
-      { item_id: 5, materialart: 'Sonstige' },];
+    ];
 
 
     this.dropdownListBereiche = [
@@ -124,6 +115,7 @@ export class MaterialienWizardComponent implements OnInit {
 
       temp_warm: [0],
       haerte: [30],
+      haerte_hv: [30],
       wandstaerke: [2],
       dichte:[10],
 
@@ -246,8 +238,43 @@ export class MaterialienWizardComponent implements OnInit {
     //  <button class="btn btn-secondary" type="reset" (click)="onReset()">Reset</button>
   }
 
-
-
  
+
+  onItemSelect(item: any) {
+    if (item.materialart == 'Metall') {
+      this.metall = true;
+    }
+
+    if (this.selectedItemsMaterial.length == 1 && item.materialart == 'Metall') {
+      this.nurMetall = true;
+    }
+    else this.nurMetall = false;
+
+
+
+  }
+  onItemDeSelect(item: any) {
+    if (item.materialart == 'Metall') {
+      this.metall = false;
+    }
+    if (this.selectedItemsMaterial.length == 1 && this.selectedItemsMaterial[0].materialart == 'Metall' ) {
+      this.nurMetall = true;
+    }
+    else this.nurMetall = false;
+
+
+  }
+  onSelectAll(items: any) {
+    this.metall = true;
+    this.nurMetall = false;
+
+  }
+
+
+  onUnSelectAll() {
+    this.metall = false;
+    this.nurMetall = false;
+
+  }
 
 }

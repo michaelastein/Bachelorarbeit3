@@ -3,10 +3,18 @@
   justify-content: left ;
 }
 
-.wert {
-  display: inline-block;
-  width: 10px;
- 
+.div1 {
+  float: left;
+  width: 25%;
+  display: block;
+  text-align: left;
+  
+}
+
+.div2 {
+  display: block;
+  text-align: center;
+
 }
 
 
