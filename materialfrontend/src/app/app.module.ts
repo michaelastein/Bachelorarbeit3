@@ -7,9 +7,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AddTutorialComponent } from './components/add-tutorial/add-tutorial.component';
-import { TutorialDetailsComponent } from './components/tutorial-details/tutorial-details.component';
-import { TutorialsListComponent } from './components/tutorials-list/tutorials-list.component';
 import { MaterialienWizardComponent } from './components/materialien-wizard/materialien-wizard.component';
 import { MaterialienListComponent } from './components/materialien-list/materialien-list.component';
 import { UebersichtComponent } from './components/uebersicht/uebersicht.component';
@@ -20,9 +17,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
   declarations: [
     AppComponent,
-    AddTutorialComponent,
-    TutorialDetailsComponent,
-    TutorialsListComponent,
+
     MaterialienWizardComponent,
     MaterialienListComponent,
     UebersichtComponent,
