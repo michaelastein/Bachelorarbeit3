@@ -37,7 +37,7 @@ export class MaterialienListComponent implements OnChanges {
         console.log('Previous:', changes[property].previousValue);
         console.log('Current:', changes[property].currentValue);
         console.log('firstChange:', changes[property].firstChange);
-        
+
       }
     }
     this.currentMaterial = undefined;
@@ -103,6 +103,8 @@ export class MaterialienListComponent implements OnChanges {
       .subscribe(
         data => {
           this.materialien = data;
+       
+          this.page = 1;
           console.log(data);
         },
         error => {
@@ -113,12 +115,10 @@ export class MaterialienListComponent implements OnChanges {
   @Input()
   setMaterial(materialien: Materialien[]): void {
     this.materialien = materialien;
-  }
-
-  resetPageNumber() {
     this.page = 1;
-
   }
+
+
 
 
 }
