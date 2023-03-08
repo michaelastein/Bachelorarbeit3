@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+   backend-service: 
+    build: ./materialfinder3
+   
+    ports:
+     - 8080:8080
+
+   frontend-service:
+    build: ./materialfrontend
+  
+    ports:
+     - 8081:8081
+    depends_on:
+     - backend-service
+
+
+        
+
+    
