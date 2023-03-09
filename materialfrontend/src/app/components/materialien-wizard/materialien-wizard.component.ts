@@ -167,7 +167,7 @@ export class MaterialienWizardComponent implements OnInit {
   get f() { return this.form.controls; }
 
   onSubmit() {
-    this.submitted = true;    
+   
     
    
 
@@ -228,7 +228,7 @@ export class MaterialienWizardComponent implements OnInit {
 
           this.materialien = data;
           console.log(data);
-          this.submitted = true;
+          
           
          // this.Ausgabe = JSON.stringify(data);
         },
@@ -241,7 +241,6 @@ export class MaterialienWizardComponent implements OnInit {
   }
 
   onReset() {
-    this.submitted = false;
     this.form.reset();
     //  <button class="btn btn-secondary" type="reset" (click)="onReset()">Reset</button>
   }
