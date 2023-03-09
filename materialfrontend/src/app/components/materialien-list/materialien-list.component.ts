@@ -66,12 +66,16 @@ export class MaterialienListComponent implements OnChanges {
     this.page = event;
     //this.retrieveMaterialien();
     this.materialien = this.materialien;
+    this.currentMaterial = undefined;
+    this.currentIndex = -1;
 
   }
   onTableSizeChange(event: any): void {
     this.tableSize = event.target.value;
     this.page = 1;
     this.materialien = this.materialien;
+    this.currentMaterial = undefined;
+    this.currentIndex = -1;
     //this.retrieveMaterialien();
   }
 
@@ -106,6 +110,8 @@ export class MaterialienListComponent implements OnChanges {
        
           this.page = 1;
           console.log(data);
+          this.currentMaterial = undefined;
+          this.currentIndex = -1;
         },
         error => {
           console.log(error);

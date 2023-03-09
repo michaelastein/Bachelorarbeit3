@@ -107,7 +107,7 @@
       </ng-template>
       <p></p>
 
-      <ng-template [ngIf]="currentMaterial.haerte != 30 && currentMaterial.haerte != undefined">
+      <ng-template [ngIf]="currentMaterial.haerte != 30 && (currentMaterial.haerte + '').length != 0">
 
         <div>
           <label><strong>Härte:</strong></label>
@@ -115,7 +115,7 @@
         </div>
       </ng-template>
 
-      <ng-template [ngIf]="currentMaterial.haerte_hv != 100 && currentMaterial.haerte_hv != undefined">
+      <ng-template [ngIf]="currentMaterial.haerte_hv != 100 && (currentMaterial.haerte_hv + '').length != 0">
 
         <div>
           <label><strong>Härte:</strong></label>
