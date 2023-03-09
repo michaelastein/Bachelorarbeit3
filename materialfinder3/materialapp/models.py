@@ -16,8 +16,8 @@ class Materialien(models.Model):
      verfahren = models.TextField()
      firmeneigen = models.BooleanField(default=0)
      waermeformbestaendigkeit = models.IntegerField()
-     haerte = models.IntegerField()
-     haerte_hv = models.IntegerField()
+     haerte = models.CharField(max_length=5)
+     haerte_hv = models.CharField(max_length=5)
 
      glasuebergangstemp = models.IntegerField()
      schmelzpunkt = models.IntegerField()

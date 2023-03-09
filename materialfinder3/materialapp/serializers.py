@@ -4,15 +4,6 @@ from .models import *
 import pandas as pd
  
  
-class TutorialSerializer(serializers.ModelSerializer):
- 
-    class Meta:
-        model = Tutorial
-        fields = ('id',
-                  'title',
-                  'description',
-                  'published')
-
 
 
 class MaterialienSerializer(serializers.ModelSerializer):

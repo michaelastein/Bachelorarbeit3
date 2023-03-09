@@ -94,17 +94,17 @@ def materialien_list(request):
 
 
         
-        kunststoffe_serializer = MaterialienSerializer(materials, many=True)
-        return JsonResponse(kunststoffe_serializer.data, safe=False)
+        material_serializer = MaterialienSerializer(materials, many=True)
+        return JsonResponse(material_serializer.data, safe=False)
     
         # 'safe=False' for objects serialization
     elif request.method == 'POST':
         materials_data = JSONParser().parse(request)
-        kunststoffe_serializer = MaterialienSerializer(data=materials_data)
-        if kunststoffe_serializer.is_valid():
-            kunststoffe_serializer.save()
-            return JsonResponse(kunststoffe_serializer.data, status=status.HTTP_201_CREATED) 
-        return JsonResponse(kunststoffe_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        material_serializer = MaterialienSerializer(data=materials_data)
+        if material_serializer.is_valid():
+            material_serializer.save()
+            return JsonResponse(material_serializer.data, status=status.HTTP_201_CREATED) 
+        return JsonResponse(material_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
  
  
 @api_view(['GET', 'PUT', 'DELETE'])
@@ -129,8 +129,7 @@ def materialien_search(request):
         filter = MaterialFilter(request.GET, queryset=Materialien.objects.all())
         ser = serializers.serialize('json',filter.qs )
         
-        #ser = ser.replace('{\"model\": \"materialapp.materialien\", \"pk\": 1, \"fields\":','' );
-        #ser = ser.replace("}}","}")
+       
         ser = json.loads(ser);
         list = []
         count = 0
@@ -139,13 +138,7 @@ def materialien_search(request):
                 count = count +1
                 
         
-        #ser = ser['fields']
-       
-        #ser = ser.replace('"model": "materialapp.materialien", "pk": 1, "fields": {','')
-        #ser = ser.replace("}}]","}]")
-        #ser = ser.replace("\"","")
-        #materialien_serializer = MaterialienSerializer(filter, many=True)
         return JsonResponse( list, safe = False)
     
-        # 'safe=False' for objects serialization
+
    

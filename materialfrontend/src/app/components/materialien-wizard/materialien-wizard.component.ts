@@ -44,6 +44,7 @@ export class MaterialienWizardComponent implements OnInit {
 
   metall: boolean = false;
   nurMetall: boolean = false;
+  metallStart: boolean = true;
 
   constructor(private formBuilder: FormBuilder, private MaterialienService: MaterialienService) { }
 
@@ -248,6 +249,7 @@ export class MaterialienWizardComponent implements OnInit {
  
 
   onItemSelect(item: any) {
+    this.metallStart = false;
     if (item.materialart == 'Metall') {
       this.metall = true;
     }
@@ -269,11 +271,16 @@ export class MaterialienWizardComponent implements OnInit {
     }
     else this.nurMetall = false;
 
+    if (this.selectedItemsMaterial.length == 0) {
+      this.metallStart = true;
+    }
+    else this.metallStart = false;
 
   }
   onSelectAll(items: any) {
     this.metall = true;
     this.nurMetall = false;
+    this.metallStart = true;
 
   }
 
@@ -281,6 +288,7 @@ export class MaterialienWizardComponent implements OnInit {
   onUnSelectAll() {
     this.metall = false;
     this.nurMetall = false;
+    this.metallStart = true;
 
   }
 
