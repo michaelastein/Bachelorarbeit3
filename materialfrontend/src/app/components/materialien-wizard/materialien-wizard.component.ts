@@ -115,7 +115,7 @@ export class MaterialienWizardComponent implements OnInit {
 
       temp_warm: [0],
       haerte: [30],
-      haerte_hv: [30],
+      haerte_hv: [100],
       wandstaerke: [2],
       dichte:[10],
 
