@@ -13,6 +13,9 @@ WORKDIR /materialfinder3
 
 EXPOSE 8080
 
+
 # runs the production server
 ENTRYPOINT ["python3", "manage.py"]
 CMD ["runserver", "8080"]
+
+
