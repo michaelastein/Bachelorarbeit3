@@ -16,6 +16,6 @@ EXPOSE 8080
 
 # runs the production server
 ENTRYPOINT ["python3", "manage.py"]
-CMD ["runserver", "8080"]
+CMD ["runserver", "0.0.0.0:8080"]
 
 

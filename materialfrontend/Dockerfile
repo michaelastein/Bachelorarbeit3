@@ -23,4 +23,4 @@ COPY . /materialfrontend
 EXPOSE 8081
 
 # start app
-CMD  ng serve --proxy-config proxy.conf.json --verbose --open --port 8081
+CMD  ng serve --proxy-config proxy.conf.json --verbose --open --port 8081 --host 0.0.0.0
