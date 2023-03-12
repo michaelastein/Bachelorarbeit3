@@ -2,33 +2,20 @@ version: '3'
 
 services:
   
- 
-
-  
-
-   frontend-service:
+  frontend-service:
     tty: true
     build: ./materialfrontend
-  
     ports:
      - 8081:8081
     depends_on:
      - backend-service
     container_name: frontend
  
-   backend-service: 
+  backend-service: 
     tty: true
-    
     build: ./materialfinder3
-    ports:
-     - 8080:8080
-
-
-
-
-
-
-
-        
-
+    environment:
+      - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 backend-service
+#    ports:
+#      - "8080:8080"
     
