@@ -176,6 +176,9 @@
       </div>
       <h6><strong>Sonstige Eigenschaften:</strong></h6>
       <div class="form-group form-check">
+        <input type="checkbox" formControlName='firmeneigen' id='firmeneigen' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
+        <label for="firmeneigen" class="form-check-label">Frei verfügbar</label>
+
 
         <input type="checkbox" formControlName='lebensmittelecht' id='lebensmittelecht' class="form-check-input" [ngClass]="{ 'is-invalid': submitted  }" />
         <label for="lebensmittelecht" class="form-check-label">Lebensmittelecht</label>

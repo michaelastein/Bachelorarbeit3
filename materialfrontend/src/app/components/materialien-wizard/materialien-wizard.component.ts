@@ -122,6 +122,7 @@ export class MaterialienWizardComponent implements OnInit {
 
       biokompatibel: [false],
       elastisch: [false],
+      firmeneigen: [false],
       
       temperaturbestaendig: [false],
       festigkeit: [false],
@@ -217,6 +218,10 @@ export class MaterialienWizardComponent implements OnInit {
     }
 
     this.newdata = split.join("")
+
+    //Frei Verfügbar ist Negation von Firmeneigen
+    this.newdata = this.newdata.replace("firmeneigen=true", "firmeneigen=false");
+
     this.newdata = this.newdata.replace("&", "");
     this.newdata = this.newdata.replaceAll("&&", "&");
 
