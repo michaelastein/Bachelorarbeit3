@@ -6,6 +6,28 @@
   <p></p>
   <h3><b>Kein passendes Material zu diesen Filtereinstellungen</b></h3>
 </ng-template>
+
+
+<ng-template [ngIf]="materialien!.length != 0 && suche">
+
+  <div class="col-md-8">
+    <div class="input-group mb-3">
+      <input type="text"
+             class="form-control"
+             placeholder="Material suchen"
+             [(ngModel)]="name" />
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary"
+                type="button"
+                (click)="searchName()">
+          Suchen
+        </button>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+
 <div class="list row">
 
 
@@ -334,24 +356,6 @@
   </div>
 
 
-  <p></p>
 
-  <ng-template [ngIf]="materialien!.length != 0">
-
-    <div class="col-md-8">
-      <div class="input-group mb-3">
-        <input type="text"
-               class="form-control"
-               placeholder="Material suchen"
-               [(ngModel)]="name" />
-        <div class="input-group-append">
-          <button class="btn btn-outline-secondary"
-                  type="button"
-                  (click)="searchName()">
-            Suchen
-          </button>
-        </div>
-      </div>
-    </div>
-  </ng-template>
+  
 </div>

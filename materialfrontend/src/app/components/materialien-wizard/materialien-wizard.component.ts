@@ -28,6 +28,7 @@ export class MaterialienWizardComponent implements OnInit {
   Ausgabe: any;
   ausgabereturn: any;
   materialien?: Materialien[];
+  suche?: Boolean = false;
 
 
   dropdownListVerfahren: any = [];

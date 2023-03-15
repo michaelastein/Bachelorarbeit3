@@ -16,6 +16,7 @@ export class MaterialienListComponent implements OnChanges {
   name = '';
   Ausgabe: any;
   @Input() materialien?: Materialien[];
+  @Input() suche?: Boolean;
 
   page: number = 1;
   count: number = 0;

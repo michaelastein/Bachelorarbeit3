@@ -10,6 +10,8 @@ import { MaterialienListComponent } from 'src/app/components/materialien-list/ma
 })
 export class UebersichtComponent {
   materialien?: Materialien[];
+  suche?: Boolean = true;
+
 
   constructor(private MaterialienService: MaterialienService) { }
 
