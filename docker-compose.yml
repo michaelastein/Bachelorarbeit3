@@ -16,6 +16,8 @@ services:
     build: ./materialfinder3
     environment:
       - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 backend-service
+      - DJANGO_ALLOWED_HOSTS=localhost 63.250.60.180 backend-service
+      
 #    ports:
 #      - "8080:8080"
     
