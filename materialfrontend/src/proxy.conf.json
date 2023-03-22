@@ -1,12 +1,12 @@
 {
 
-  "/api/materialien": {
-    "target": "http://backend-service:8080",
+  "./api/materialien": {
+    "target": "./backend-service:8080",
     "secure": false,
     "logLevel": "debug"
   },
-  "/api/search": {
-    "target": "http://backend-service:8080",
+  "./api/search": {
+    "target": "./backend-service:8080",
     "secure": false,
     "logLevel": "debug"
   }
