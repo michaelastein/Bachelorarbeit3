@@ -15,10 +15,9 @@ services:
     tty: true
     build: ./materialfinder3
     environment:
-      - DJANGO_ALLOWED_HOSTS=localhost 83.229.85.34 backend-service
+  
       - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 backend-service
-      - DJANGO_ALLOWED_HOSTS=localhost 141.83.158.200 backend-service
-      - DJANGO_ALLOWED_HOSTS=localhost 0.0.0.0 backend-service
+
       
       
       
