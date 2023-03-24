@@ -3,8 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Materialien } from '../models/materialien.model';
 
-const baseUrl = './api/materialien';
-const searchUrl = './api/search';
+const baseUrl = '/api/materialien';
+const searchUrl = '/api/search';
 /*http://localhost:8080/api
  */
 
