@@ -17,13 +17,14 @@ import { KontaktComponent } from './components/kontakt/kontakt.component';
 
 @NgModule({
   declarations: [
+    //hier neue Komponenten einfügen!
+
     AppComponent,
 
     MaterialienWizardComponent,
     MaterialienListComponent,
     UebersichtComponent,
     KontaktComponent,
-    //DynamicTableComponent,
     
 
   ],

@@ -80,6 +80,8 @@ WSGI_APPLICATION = "materialfinder3.wsgi.application"
 
 DATABASES = {
     "default": {
+        # Hier wird die verwendete Datenbank spezifiziert
+        # Für die Datenbank wurde SQLiteSTudio verwendet
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'materialien.sqlite3'),
     }

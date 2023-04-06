@@ -9,6 +9,7 @@ import { KontaktComponent } from './components/kontakt/kontakt.component';
 const routes: Routes = [
   { path: '', redirectTo: 'materialien', pathMatch: 'full' },
 
+  // verwaltet Links zu den verschiedenen Seiten
   { path: 'materialien', component: MaterialienWizardComponent },
   { path: 'uebersicht', component: UebersichtComponent },
   { path: 'kontakt', component: KontaktComponent },

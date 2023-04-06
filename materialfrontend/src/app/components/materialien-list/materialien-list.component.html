@@ -1,13 +1,13 @@
 
 
-
+<!-- Code für die Darstellung der Liste der Materialien-->
 
 <ng-template [ngIf]="materialien!.length == 0">
   <p></p>
   <h3><b>Kein passendes Material zu diesen Filtereinstellungen</b></h3>
 </ng-template>
 
-
+<!--Auf der Hauptseite wird die Suchleiste nicht angezeigt, nur auf der Übersichtsseite -->
 <ng-template [ngIf]="materialien!.length != 0 && suche">
 
   <div class="col-md-8">
@@ -69,9 +69,8 @@
     </ng-template>
 
 
-
+    <!-- Durch *ngIf werden die Kategorien ausgeblendet, wenn dazu keine Daten vorliegen -->
   </div>
-  {{Ausgabe}}
   <div class="col-md-6">
     <div *ngIf="currentMaterial">
       <h4><strong>{{ currentMaterial.name }}</strong></h4>

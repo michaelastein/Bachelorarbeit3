@@ -18,19 +18,22 @@ import { IDropdownSettings, } from 'ng-multiselect-dropdown';
 
 })
 export class MaterialienWizardComponent implements OnInit {
+
+  // FormGroup, die alle SLider, Dropdown Menüs und Checkboxen enthält
   form!: FormGroup;
   submitted = false;
-  postId: any;
-  obj: any;
+ 
   dataCheckboxes: any;
-  getter: any;
+
   newdata!: string;
-  Ausgabe: any;
-  ausgabereturn: any;
+
+
+
+// Diese Variablen werden durch Data Binding an materialien-list übergeben
   materialien?: Materialien[];
   suche?: Boolean = false;
 
-
+//variablen für die DropDown Menüs
   dropdownListVerfahren: any = [];
   selectedItemsVerfahren: any = [];
   dropdownSettingsVerfahren: IDropdownSettings = {};
@@ -43,6 +46,7 @@ export class MaterialienWizardComponent implements OnInit {
   selectedItemsMaterial: any = [];
   dropdownSettingsMaterial: IDropdownSettings = {};
 
+//Variablen zur Steuerung der Ein- und Ausblendung der beiden Slider für die Härte
   metall: boolean = false;
   nurMetall: boolean = false;
   metallStart: boolean = true;
@@ -50,7 +54,8 @@ export class MaterialienWizardComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private MaterialienService: MaterialienService) { }
 
   ngOnInit() {
-    
+
+//Initialisierung der Variablen für die Dropdown Menüs mit den passenden Auswahlmöglichkeiten
     this.dropdownListVerfahren = [
       { item_id: 1, verfahren: 'FFF/FDM' },
       { item_id: 2, verfahren: 'SLS' },
@@ -114,6 +119,7 @@ export class MaterialienWizardComponent implements OnInit {
 
 
     this.form = this.formBuilder.group({
+    // die Standardwerte für die Eigenschaftenw erden definiert
 
       temp_warm: [0],
       haerte: [30],
@@ -150,6 +156,8 @@ export class MaterialienWizardComponent implements OnInit {
 
     });
     this.newdata = "";
+
+// Initial wird einmal die gesamte Materialien Liste vom Backend Server abgefragt und angezeigt
     this.MaterialienService.getAll()
       .subscribe(
         data => {
@@ -171,9 +179,11 @@ export class MaterialienWizardComponent implements OnInit {
   onSubmit() {
    
     
-   
+   //Daten der FormGroup abfragen
 
     this.dataCheckboxes = JSON.stringify(this.form.value, null);
+
+// durch String-Operationen auf die benötigte Form für die HTTP-Anfrage bringen
     this.newdata = this.dataCheckboxes.replaceAll(",", "&");
     this.newdata = this.newdata.replace("{", "?");
     this.newdata = this.newdata.replaceAll("}", "");
@@ -226,7 +236,7 @@ export class MaterialienWizardComponent implements OnInit {
     this.newdata = this.newdata.replace("&", "");
     this.newdata = this.newdata.replaceAll("&&", "&");
 
-
+    //HTTP-Anfrage über MaterialienService an das Backend losschicken
     this.MaterialienService.find(this.newdata)
       .subscribe(
         data => {
@@ -236,7 +246,6 @@ export class MaterialienWizardComponent implements OnInit {
           console.log(data);
           
           
-         // this.Ausgabe = JSON.stringify(data);
         },
         error => {
           console.log(error);

@@ -1,6 +1,10 @@
 
 
 export class Materialien {
+
+  // die Definition aller Fields der Materialien-Tabelle mit entsprechenden Datentypen
+  // entsprechend der Model-Definition im Backend, nur in TypeScript
+
   id?: any;
   name?: string;
   materialart?: string;

@@ -10,14 +10,18 @@ import {  OnChanges, SimpleChanges, SimpleChange } from '@angular/core';
   styleUrls: ['./materialien-list.component.css']
 })
 export class MaterialienListComponent implements OnChanges {
-  //materialien?: Materialien[];
+  //aktuell angeklicktes Material
   currentMaterial?: Materialien;
   currentIndex = -1;
   name = '';
-  Ausgabe: any;
+
+
+
+  //Durch Data Binding übergebene Daten
   @Input() materialien?: Materialien[];
   @Input() suche?: Boolean;
 
+  //Variablen für die Paginierung
   page: number = 1;
   count: number = 0;
   tableSize: number = 15;
@@ -41,6 +45,9 @@ export class MaterialienListComponent implements OnChanges {
 
       }
     }
+
+    //ausgewähltes Material wird zurückgesetzt, wenn sich die Daten der Liste ändern
+    // springen wirder zu Seite 1
     this.currentMaterial = undefined;
     this.currentIndex = -1;
     this.page = 1;
@@ -50,7 +57,8 @@ export class MaterialienListComponent implements OnChanges {
   }
 
 
-
+  // durch Data Binding nicht mehr benötigte Methode
+  // kann Liste mit allen Materialien vom Backend abfragen
   retrieveMaterialien(): void {
     this.materialienService.getAll()
       .subscribe(
@@ -63,6 +71,9 @@ export class MaterialienListComponent implements OnChanges {
         });
   }
 
+
+    //ausgewähltes Material wird zurückgesetzt, wenn sich die Daten der Liste ändern
+    // springen wirder zu Seite 1
   onTableDataChange(event: any) {
     this.page = event;
     //this.retrieveMaterialien();
@@ -71,6 +82,13 @@ export class MaterialienListComponent implements OnChanges {
     this.currentIndex = -1;
 
   }
+
+  // Methode aktuell nicht benutzt
+  // es kann eine Eingabe zur Auswahl der Tabellengröße bereitgestellt werden, die diese
+  // Funktion aufruft
+    //ausgewähltes Material wird zurückgesetzt, wenn sich die Größe der Liste ändert
+    // springen wirder zu Seite 1
+
   onTableSizeChange(event: any): void {
     this.tableSize = event.target.value;
     this.page = 1;
@@ -86,6 +104,7 @@ export class MaterialienListComponent implements OnChanges {
     this.currentIndex = -1;
   }
 
+  // das aktuell angeklickte Material wird gesetzt
   setActiveMaterial(material: Materialien, index: number): void {
     this.currentMaterial = material;
     this.currentIndex = index;
@@ -103,6 +122,8 @@ export class MaterialienListComponent implements OnChanges {
         });
   }
 
+
+  // Methode für die Suchleiste, fragt das Backend nach allen MAterialien mit diesen Namen an
   searchName(): void {
     this.materialienService.findByName(this.name)
       .subscribe(
@@ -119,6 +140,8 @@ export class MaterialienListComponent implements OnChanges {
         });
   }
 
+
+  // materialien wird mittels Data Binding verändert
   @Input()
   setMaterial(materialien: Materialien[]): void {
     this.materialien = materialien;

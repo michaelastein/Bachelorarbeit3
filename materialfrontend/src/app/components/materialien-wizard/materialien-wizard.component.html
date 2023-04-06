@@ -16,12 +16,16 @@
 <div class="card m-3">
   <h6 class="card-header">Materialfinder</h6>
   <div class="card-body">
-    <h4>{{Ausgabe}}</h4>
+
+  
+
+    <!--Formgroup, die alle Slider, Checkboxes und MultiSelect Menüs des Filtermenüs enthält -->
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
 
       <h6><strong>Materialart</strong></h6>
       <div style="width:60%">
+        <!-- Dropdown Menü für die materialart-->
         <ng-multiselect-dropdown [settings]="dropdownSettingsMaterial"
                                  [data]="dropdownListMaterial"
                                  [(ngModel)]="selectedItemsMaterial"
@@ -34,6 +38,7 @@
         </ng-multiselect-dropdown>
       </div>
       <p></p>
+      <!-- Dropdown Menü für die Kategorie Verfahren-->
 
       <h6><strong>Verfahren</strong></h6>
       <div style="width:60%">
@@ -46,6 +51,7 @@
 
       <h6><strong>Mechanische Eigenschaften:</strong></h6>
 
+      <!-- Vier Slider-->
       <div class="div1">
         Für Temperaturen bis min.
       </div>
@@ -114,7 +120,7 @@
       </div>
 
       <p></p>
-
+      <!--Checkboxes, jede Form Group enthält eine Zeile der Checkboxen -->
       <div class="form-group form-check">
 
 
@@ -199,7 +205,7 @@
 
 
       </div>
-
+      <!-- Dropdown Menü für Einsatzbereiche -->
       <h6><strong>Einsatzbereiche</strong></h6>
       <div style="width:100%">
         <ng-multiselect-dropdown [settings]="dropdownSettingsBereiche"
@@ -217,6 +223,7 @@
     <p></p>
     <p></p>
     <p></p>
+    <!-- Hier wird die Komponenete materialien-list eingefügt und die Variablen materialien und suche übergeben -->
     <app-materialien-list [materialien]="materialien" [suche]="suche"></app-materialien-list>
   </div>
 </div>

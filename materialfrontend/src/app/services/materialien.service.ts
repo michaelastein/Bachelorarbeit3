@@ -4,9 +4,14 @@ import { Observable } from 'rxjs';
 import { Materialien } from '../models/materialien.model';
 
 const baseUrl = '/api/materialien';
+
+//URL-Start für Suchanfragen
+// wird in Backend an die search-Methode weitergeleitet
 const searchUrl = '/api/search';
-/*http://localhost:8080/api
- */
+
+
+//http://localhost:8080/api
+
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +20,8 @@ export class MaterialienService {
 
   constructor(private http: HttpClient) { }
 
+
+  // Methode, um die gesamte Liste der Materialien abzurufen
   getAll(): Observable<Materialien[]> {
     console.log("getAll" + baseUrl)
 
@@ -44,12 +51,14 @@ export class MaterialienService {
     return this.http.delete(baseUrl);
   }
 
+
+  // Methode um Materialien, die zu übergebenen Parametern (terms) passen, abzurufen
   find(terms: any): Observable<Materialien[]> {
     
     return this.http.get<Materialien[]>(`${searchUrl}${terms}`);
   }
 
-
+  // ruft alle Materialien mit diesen Namen ab
   findByName(name: any): Observable<Materialien[]> {
     console.log("find" + `${baseUrl}?name=${name}`)
     return this.http.get<Materialien[]>(`${searchUrl}?name=${name}`);

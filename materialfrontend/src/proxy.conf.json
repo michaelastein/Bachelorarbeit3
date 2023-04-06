@@ -1,3 +1,8 @@
+/** Einstellungen für Proxyserver
+ Durch die Verwendung von Docker wird hier backend-service statt einer IP-Adresse verwendet
+ durch den Aufruf im Dockerfile wird die proxy.conf.json Datei eine Ebene höher verwendet
+**/
+
 {
 
   "/api/materialien": {

@@ -14,8 +14,9 @@ services:
   backend-service: 
     tty: true
     build: ./materialfinder3
+
     environment:
+    # Diese IP-Adresse ERSETZEN! Den Rest der Zeile unverändert lassen
       - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 backend-service
-#    ports:
-#      - "8080:8080"
+
     
