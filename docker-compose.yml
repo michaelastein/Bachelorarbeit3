@@ -17,6 +17,6 @@ services:
 
     environment:
     # Diese IP-Adresse ERSETZEN! Den Rest der Zeile unverändert lassen
-      - DJANGO_ALLOWED_HOSTS=localhost 83.229.85.34 backend-service
+      - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 backend-service
 
     
